@@ -1,6 +1,7 @@
 var express = require("express"),
   bodyParser = require("body-parser"),
-  mongoose = require("mongoose");
+  mongoose = require("mongoose"),
+  Teacher = require("./models/Teacher");
 
 var app = express();
 app.listen(3000, () => {
