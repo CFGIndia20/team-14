@@ -157,3 +157,11 @@ app.get("/dashboard", (req, res) => {
 app.get("/login", (req, res) => {
   res.render("login");
 });
+
+app.get("/StudentRegisterPage", (req, res) => {
+  res.render("StudentRegisterPage");
+});
+
+app.get("/Teacher-Registration", (req, res) => {
+  res.render("Teacher-Registration");
+});
