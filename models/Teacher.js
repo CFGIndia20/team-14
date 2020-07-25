@@ -18,6 +18,8 @@ const Teacher = new mongoose.Schema({
   category: {
     type: String,
   },
+  freeSlots: [Number],
+  notSlots: [Number],
 });
 
 Teacher.plugin(passportLocalMongoose);

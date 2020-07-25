@@ -65,13 +65,6 @@ isLoggedIn = (req, res, next) => {
     return res.redirect("/login");
   }
 };
-//============================>Landing Page
-
-app.get("/",(req,res)=>{
-  res.render("home")
-})
-
-//==============Registration Page
 
 app.post("/register", (req, res) => {
   console.log(req.body);
@@ -99,8 +92,8 @@ app.post("/register", (req, res) => {
       name: req.body.name,
       category: req.body.category,
       username: req.body.username,
-      // dob: req.body.dob,
-      // grad_date: req.body.grad_date,
+      dob: req.body.dob,
+      grad_date: req.body.grad_date,
       experience: req.body.experience,
       hsc: req.body.hsc,
       ssc: req.body.ssc,
@@ -117,15 +110,6 @@ app.post("/register", (req, res) => {
         });
       }
     });
-    console.log(req.body.name);
-    console.log(req.body.category);
-    console.log(req.body.email);
-    console.log(req.body.dob);
-    console.log(req.body.qualification);
-    console.log(req.body.grad_date);
-    console.log(req.body.experience);
-    console.log(req.body.hsc);
-    console.log(req.body.ssc);
   } else {
     var newUser = new Admin({
       username: req.body.email,

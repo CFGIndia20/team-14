@@ -39,10 +39,11 @@ const Student = new Schema({
     // required: [true, "Email is required"],
     default: "",
   },
-  timePref: {
-    type: Date,
-    timestamps: true,
-    default: Date.now,
+  startTime: {
+    type: Number,
+  },
+  endTime: {
+    type: Number,
   },
   experience: {
     type: [String],
