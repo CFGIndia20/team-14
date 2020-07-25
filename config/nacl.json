@@ -1,0 +1,83 @@
+[
+  {
+    "group": "admin",
+    "permissions": [
+      {
+        "resource": "*",
+        "methods": [
+          "*"
+        ],
+        "action": "allow"
+      }
+    ]
+  },
+  {
+    "group": "company",
+    "permissions": [
+      {
+        "resource": "/aptgroup",
+        "methods": [
+          "GET"
+        ],
+        "action": "allow"
+      },
+      {
+        "resource": "/aptgroup/:id",
+        "methods": [
+          "PUT"
+        ],
+        "action": "allow"
+      }
+    ]
+  },
+  {
+    "group": "facility",
+    "permissions": [
+      {
+        "resource": "/aptgroup/:id",
+        "methods": [
+          "DELETE"
+        ],
+        "action": "deny"
+      },
+      {
+        "resource": "/aptgroup",
+        "methods": [
+          "GET"
+        ],
+        "action": "allow"
+      }
+    ]
+  },
+  {
+    "group": "speciality",
+    "permissions": [
+      {
+        "resource": "/aptgroup/:id",
+        "methods": [
+          "DELETE"
+        ],
+        "action": "deny"
+      },
+      {
+        "resource": "/aptgroup",
+        "methods": [
+          "GET"
+        ],
+        "action": "allow"
+      }
+    ]
+  },
+  {
+    "group": "anonymous",
+    "permissions": [
+      {
+        "resource": "/aptgroup/:id",
+        "methods": [
+          "GET"
+        ],
+        "action": "allow"
+      }
+    ]
+  }
+]
