@@ -76,7 +76,8 @@ app.post("/register", (req, res) => {
         console.log(err);
         // req.flash("error1", "Username already exists");
         res.redirect("/login");
-      } else {
+      } 
+      else {
         await Teacher.authenticate("local")(req, res, function () {
           res.redirect("/dashboard");
           res.send("Registered");
@@ -126,6 +127,7 @@ app.post("/register", (req, res) => {
   }
 });
 
+
 app.post(
   "/login-student",
   passport.authenticate("student", {
@@ -155,6 +157,10 @@ app.post(
 
 app.get("/dashboard", (req, res) => {
   res.render("home");
+});
+
+app.get("/TeacherDashboard", (req, res) => {
+  res.render("TeacherDashboard");
 });
 
 app.get("/login", (req, res) => {

@@ -37,7 +37,12 @@ const RunningSchema = new Schema({
     Time : {
         type : Date
     },
+    Progress : {
+        type : Number
+    },
+    
     slot: SlotSchema
+
 });
 
 const Ninja = mongoose.model('ninja', RunningSchema);
