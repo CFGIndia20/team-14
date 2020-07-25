@@ -154,22 +154,7 @@ app.post(
 app.get("/dashboard", (req, res) => {
   res.render("home");
 });
-<<<<<<< HEAD
-//=========> Submit Admission Test Score of the student
-
-app.post("/submitAdmissionScore",(req,res){
-  
-})
-
-
-//=========> Submit Baseline Test Score of the student
-
-app.post("/submitBaseLineScore",(req,res){
-
-})
-=======
 
 app.get("/login", (req, res) => {
   res.render("login");
 });
->>>>>>> a313b1191c1b112b04b6af55f739404696bb3623
