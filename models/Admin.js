@@ -15,7 +15,13 @@ const Admin = new mongoose.Schema({
     type: String,
     default: "",
   },
+<<<<<<< HEAD
   
+=======
+  category: {
+    type: String,
+  },
+>>>>>>> b06a55c281303557d72e398b4e82679a0a4aea7c
 });
 
 Admin.plugin(passportLocalMongoose);

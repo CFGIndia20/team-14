@@ -15,6 +15,9 @@ const Teacher = new mongoose.Schema({
     type: String,
     required: true,
   },
+  category: {
+    type: String,
+  },
 });
 
 Teacher.plugin(passportLocalMongoose);
