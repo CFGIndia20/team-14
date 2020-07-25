@@ -64,6 +64,7 @@ isLoggedIn = (req, res, next) => {
 };
 
 app.post("/register", (req, res) => {
+  console.log(req.body);
   if (req.body.category == "Teacher") {
     var newUser = new Teacher({
       username: req.body.username,
@@ -84,11 +85,14 @@ app.post("/register", (req, res) => {
     });
   } else if (req.body.category == "Student") {
     var newUser = new Student({
-      username: req.body.username,
+      name: req.body.name,
       category: req.body.category,
-      // email: req.body.email,
+      username: req.body.username,
       // dob: req.body.dob,
-      // qualification: req.body.qualification,
+      // grad_date: req.body.grad_date,
+      experience: req.body.experience,
+      hsc: req.body.hsc,
+      ssc: req.body.ssc,
     });
     Student.register(newUser, req.body.password, async function (err, user) {
       if (err) {
@@ -102,10 +106,18 @@ app.post("/register", (req, res) => {
         });
       }
     });
+    console.log(req.body.name);
+    console.log(req.body.category);
+    console.log(req.body.email);
+    console.log(req.body.dob);
+    console.log(req.body.qualification);
+    console.log(req.body.grad_date);
+    console.log(req.body.experience);
+    console.log(req.body.hsc);
+    console.log(req.body.ssc);
   } else {
     var newUser = new Admin({
-      username: req.body.username,
-      email: req.body.email,
+      username: req.body.email,
       category: req.body.category,
     });
     Admin.register(newUser, req.body.password, async function (err, user) {
@@ -122,7 +134,6 @@ app.post("/register", (req, res) => {
     });
   }
 });
-
 
 app.post(
   "/login-student",

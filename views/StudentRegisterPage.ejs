@@ -13,58 +13,32 @@
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CRoboto:400,500%7CExo+2:600&display=swap" rel="stylesheet">
 
     <!-- Perfect Scrollbar -->
-    <link type="text/css" href="assets\vendor\perfect-scrollbar.css" rel="stylesheet">
+    <link type="text/css" href="\vendor\perfect-scrollbar.css" rel="stylesheet">
 
     <!-- Fix Footer CSS -->
-    <link type="text/css" href="assets\vendor\fix-footer.css" rel="stylesheet">
+    <link type="text/css" href="\vendor\fix-footer.css" rel="stylesheet">
 
     <!-- Material Design Icons -->
-    <link type="text/css" href="assets\css\material-icons.css" rel="stylesheet">
+    <link type="text/css" href="\css\material-icons.css" rel="stylesheet">
 
 
     <!-- Font Awesome Icons -->
-    <link type="text/css" href="assets\css\fontawesome.css" rel="stylesheet">
+    <link type="text/css" href="\css\fontawesome.css" rel="stylesheet">
 
 
     <!-- Preloader -->
-    <link type="text/css" href="assets\css\preloader.css" rel="stylesheet">
+    <link type="text/css" href="\css\preloader.css" rel="stylesheet">
 
 
     <!-- App CSS -->
-    <link type="text/css" href="assets\css\app.css" rel="stylesheet">
-    
+    <link type="text/css" href="\css\app.css" rel="stylesheet">
+
+
+
+
+
+
 </head>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 <body class="layout-sticky-subnav layout-default ">
@@ -95,11 +69,11 @@
 
                     <!-- Navbar Brand -->
                     <a href="fixed-index.html" class="navbar-brand mr-16pt">
-                        <!-- <img class="navbar-brand-icon" src="assets/images/logo/white-100@2x.png" width="30" alt="Luma"> -->
+                        <!-- <img class="navbar-brand-icon" src="/images/logo/white-100@2x.png" width="30" alt="Luma"> -->
 
                         <span class="avatar avatar-sm navbar-brand-icon mr-0 mr-lg-8pt">
 
-                            <span class="avatar-title rounded bg-primary"><img src="assets\images\illustration\student\128\white.svg" alt="logo" class="img-fluid"></span>
+                            <span class="avatar-title rounded bg-primary"><img src="\images\illustration\student\128\white.svg" alt="logo" class="img-fluid"></span>
 
                         </span>
 
@@ -202,68 +176,83 @@
         <div class="mdk-header-layout__content page-content ">
             <div class="pt-32pt pt-sm-64pt pb-32pt">
                 <div class="container page__container">
-                    <form action="fixed-index.html" class="col-md-5 p-0 mx-auto">
+                    <form action="/register" method="POST" class="col-md-5 p-0 mx-auto">
 
 
                         <div class="form-group">
                             <label class="form-label" for="email">Email:</label>
-                            <input id="email" type="text" class="form-control" placeholder="Your email address ...">
+                            <input id="email" type="text" name="username" class="form-control" placeholder="Your email address ...">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="email">Password:</label>
+                            <input id="email" type="text" name="password" class="form-control" placeholder="Your password address ...">
                         </div>
 
 
                         <div class="form-group">
                             <label class="form-label" for="Name">Name:</label>
-                            <input id="Name" type="text" class="form-control" placeholder="Enter your name here....">
+                            <input id="Name" type="text" name="name" class=" form-control" placeholder="Enter your name here....">
                         </div>
 
                         
                         <div class="form-group">
                             <label class="form-label" for="DOB">DOB:</label>
-                            <input id="DOB" type="date" class="form-control" placeholder="Enter date of birth">
+                            <input id="DOB" type="date" name="dob" class="form-control" placeholder="Enter date of birth">
                         </div>
                 
                         <div class="form-group">
 
-                            <label class="form-label">Qualifiaction:</label><br>
-                            <input type="checkbox" id="tenth" name="twelvw" value="10">
+                            <label class="form-label">Qualification:</label><br>
+                            <input type="checkbox" id="tenth" class="qualification" name="twelvw" value="10">
                             <label for="tenth">SSC</label><br>
 
                             <!-- <label class="form-label" for="score10">:</label> -->
-                            <input id="score10" type="number" class="form-control" placeholder="Enter your 10th score">
+                            <input id="score10" type="number" name="ssc" class=" form-control" placeholder="Enter your 10th score">
 
                             <input type="checkbox" id="twelve" name="twelve" value="12">
-                            <label for="twelvw">HSC</label><br>
+                            <label  for="twelvw">HSC</label><br>
 <!-- 
                             <label class="form-label" for="score12">:</label> -->
-                            <input id="score12" type="number" class="form-control" placeholder="Enter your 12th score">
+                            <input id="score12" type="number" name="hsc" class=" form-control" placeholder="Enter your 12th score">
                             
                         </div>
 
             
                         <div class="form-group">
-                            <label class="form-label" for="graduation_date">Graduaion Date:</label>
-                            <input id="graduation_date" type="date" class="form-control" placeholder="Enter date of Graduation">
+                            <label class="form-label" for="graduation_date">Graduation Date:</label>
+                            <input id="graduation_date" type="date" name="grad_date" class=" form-control" placeholder="Enter date of Graduation">
                         </div>
+
+                        <input
+                        id="category"
+                        type="text"
+                        name="category"
+                        class=" form-control"
+                        placeholder="Your email address ..."
+                        value="Student"
+                        style="display: none;"
+                      />
 
                         <div class="form-group">
                             <label class="form-label" for="phone">Phone Number:</label>
-                            <input id="phone" type="tel" class="form-control" placeholder="Enter your phone no">
+                            <input id="phone" type="tel" name="phone"class=" form-control" placeholder="Enter your phone no">
                         </div>
                         
                         <div class="form-group">
                             <label class="form-label" for="Experience">Work Experience:</label>
-                            <input id="Experience" type="text" class="form-control" placeholder="Enter your past Expeience">
+                            <input id="Experience" type="text" name="experience" class="experience form-control" placeholder="Enter your past Expeience">
                         </div>
 
                         <div class="form-group">
                             <label class="form-label" for="Time">Time Slot:</label>
-                            <input id="Time" type="time" class="form-control" placeholder="Enter your prefered Time">
+                            <input id="Time" type="time" name="time" class="form-control" placeholder="Enter your prefered Time">
                         </div>
 
                         <!-- <button onclick="myFunction()">Quiz link</button> -->
 
                         <div class="text-center">
-                            <button class="btn btn-primary">Register</button>
+                            <input type='submit'>Register</input>
                         </div>
                     </form>
                 </div>
@@ -325,7 +314,7 @@
         <div class="js-fix-footer2 bg-white border-top-2">
             <div class="container page__container page-section d-flex flex-column">
                 <p class="text-70 brand mb-24pt">
-                    <img class="brand-icon" src="assets\images\logo\black-70@2x.png" width="30" alt="Luma"> Luma
+                    <img class="brand-icon" src="\images\logo\black-70@2x.png" width="30" alt="Luma"> Luma
                 </p>
                 <p class="measure-lead-max text-50 small mr-8pt">Luma is a beautifully crafted user interface for modern Education Platforms, including Courses & Tutorials, Video Lessons, Student and Teacher Dashboard, Curriculum Management, Earnings and Reporting, ERP, HR, CMS, Tasks, Projects, eCommerce and more.</p>
                 <p class="mb-8pt d-flex">
@@ -359,11 +348,11 @@
 
 
                 <a href="fixed-index.html" class="sidebar-brand ">
-                    <!-- <img class="sidebar-brand-icon" src="assets/images/illustration/student/128/white.svg" alt="Luma"> -->
+                    <!-- <img class="sidebar-brand-icon" src="/images/illustration/student/128/white.svg" alt="Luma"> -->
 
                     <span class="avatar avatar-xl sidebar-brand-icon h-auto">
 
-                        <span class="avatar-title rounded bg-primary"><img src="assets\images\illustration\student\128\white.svg" class="img-fluid" alt="logo"></span>
+                        <span class="avatar-title rounded bg-primary"><img src="\images\illustration\student\128\white.svg" class="img-fluid" alt="logo"></span>
 
                     </span>
 
@@ -1118,26 +1107,26 @@
 
 
     <!-- jQuery -->
-    <script src="assets\vendor\jquery.min.js"></script>
+    <script src="\vendor\jquery.min.js"></script>
 
     <!-- Bootstrap -->
-    <script src="assets\vendor\popper.min.js"></script>
-    <script src="assets\vendor\bootstrap.min.js"></script>
+    <script src="\vendor\popper.min.js"></script>
+    <script src="\vendor\bootstrap.min.js"></script>
 
     <!-- Perfect Scrollbar -->
-    <script src="assets\vendor\perfect-scrollbar.min.js"></script>
+    <script src="\vendor\perfect-scrollbar.min.js"></script>
 
     <!-- DOM Factory -->
-    <script src="assets\vendor\dom-factory.js"></script>
+    <script src="\vendor\dom-factory.js"></script>
 
     <!-- MDK -->
-    <script src="assets\vendor\material-design-kit.js"></script>
+    <script src="\vendor\material-design-kit.js"></script>
 
     <!-- Fix Footer -->
-    <script src="assets\vendor\fix-footer.js"></script>
+    <script src="\vendor\fix-footer.js"></script>
 
     <!-- App JS -->
-    <script src="assets\js\app.js"></script>
+    <script src="\js\app.js"></script>
 
 
 
