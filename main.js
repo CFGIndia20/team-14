@@ -3,6 +3,9 @@ var express = require("express"),
   mongoose = require("mongoose"),
   Teacher = require("./models/Teacher"),
   Student = require("./models/Student"),
+  UnallocatedSlots = require("./models/UnallocatedSlots"),
+  RunningSlots = require("./models/RunningSlots"),
+  Batch = require("./models/Batch"),
   Admin = require("./models/Admin"),
   passport = require("passport"),
   localStrategy = require("passport-local"),
@@ -27,7 +30,7 @@ mongoose
   })
   .catch((err) => {
     console.log("Error: ", err.message);
-  });
+});
 
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
@@ -126,6 +129,53 @@ app.post("/register", (req, res) => {
     });
   }
 });
+ 
+///++++++++++++++++++Update the Level of the Student on the basis of the test
+
+app.post("/:StudentId/EnterStudentLevel",(req,res) => {
+  console.log(req.body);
+  console.log(req.params.StudentId);
+  //Send the Student BaseLineTest Score and 
+  var level;
+  const score = parseInt(req.body.score);
+  console.log(score);
+  if(score > 70) level = "High";
+  if(score >=50) level = "Mid";
+  else level = "Low";
+  console.log(level);
+  
+  //update the student database with the level of the student
+  Student.findByIdAndUpdate({_id:req.params.StudentId},{level : level},function(err,student){
+    if(err) console.log(err);
+    else{
+      console.log(student);
+      //Allocation to a Dummy Batch 
+      UnallocatedSlots.find({},function(err,batches){
+        if(err) console.log(err);
+        else{
+          console.log(Object.keys(Object.keys(batches).length === 0));
+
+          if(Object.keys(batches).length === 0){
+            //If we don't have any batch, we make 3 batches => 1 for each skill level
+            Batch.create({Students : [],level : "Low"},function(err,batch){
+              if(err) console,log(err);
+              else console.log(batch);
+            })
+            Batch.create({Students : [],level : "Mid"},function(err,batch){
+              if(err) console,log(err);
+              else console.log(batch);
+            })
+            Batch.create({Students : [],level : "High"},function(err,batch){
+              if(err) console,log(err);
+              else console.log(batch);
+            })
+          }
+        }
+      })
+    }
+  })
+  res.send("Done");
+});
 
 app.post(
   "/login-student",
@@ -174,6 +224,7 @@ app.get("/Teacher-Registration", (req, res) => {
   res.render("Teacher-Registration");
 });
 
+<<<<<<< HEAD
 app.get("/quiz", (req, res) => {
   res.render("quiz");
 });
@@ -210,3 +261,47 @@ app.post("/data/quiz", (req, res) => {
   console.log(questions);
   console.log(correct);
 });
+=======
+
+
+
+//++++++Temporary Ruotes++++++++++(Just to check the working in POSTMAN)
+app.get("/students",(req,res)=> {
+  console.log(req.body);
+  Student.find({},function(err,students){
+    if(err) {
+      console.log(err);
+      res.err(err);
+    }
+    else{
+      res.send(students);
+    }
+  })
+})
+
+app.get("/batches",(req,res)=> {
+  console.log(req.body);
+  Batch.find({},function(err,batches){
+    if(err) {
+      console.log(err);
+      res.err(err);
+    }
+    else{
+      res.send(batches);
+    }
+  })
+})
+
+app.get("/DeleteBatches",(req,res)=> {
+  console.log(req.body);
+  Batch.findOneAndDelete({},function(err,batches){
+    if(err) {
+      console.log(err);
+      res.send(err);
+    }
+    else{
+      res.send(batches);
+    }
+  })
+})
+>>>>>>> 3fa197ad2b36e6fde1251638101903640a7dce69
