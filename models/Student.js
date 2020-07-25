@@ -34,7 +34,7 @@ const Student = new Schema({
     // required: [true, "Email is required"],
     default: "",
   },
-  TimePref: {
+  timePref: {
     type: Date,
     timestamps: true,
     default: Date.now,
@@ -43,16 +43,20 @@ const Student = new Schema({
     type: [String],
     default: "",
   },
-  AdmissionQuiz: {
+  admissionQuiz: {
     type: Number,
     default: 0,
   },
-  BaselineTest: {
+  score: {
     type: Number,
     default: 0,
   },
   category: {
     type: String,
+  },
+  batch: {
+    type: String,
+    default: "",
   },
 });
 
