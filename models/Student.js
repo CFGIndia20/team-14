@@ -51,6 +51,9 @@ const Student = new Schema({
     type: Number,
     default: 0,
   },
+  category: {
+    type: String,
+  },
 });
 
 Student.plugin(passportLocalMongoose);
