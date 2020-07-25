@@ -9,11 +9,11 @@ const SlotSchema = new Schema({
     },
     Students: {
         type: [Number],
-        index: '2dsphere'
-    }
+    },
+    Time : Number,
+    Level : String,
 });
 
-// create ninja Schema & model
 const RunningSchema = new Schema({
     TeacherAllocated: [
         {
@@ -35,7 +35,7 @@ const RunningSchema = new Schema({
         default: false
     },
     Time : {
-        type : Date
+        type : Number
     },
     Progress : {
         type : Number

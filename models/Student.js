@@ -63,6 +63,10 @@ const Student = new Schema({
     type: String,
     default: "",
   },
+  level: {
+    type: String,
+    default: "",
+  },
 });
 
 Student.plugin(passportLocalMongoose);
