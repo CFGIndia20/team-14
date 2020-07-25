@@ -175,6 +175,10 @@ app.get("/dashboard", (req, res) => {
   res.render("home");
 });
 
+app.get("/TeacherDashboard", (req, res) => {
+  res.render("TeacherDashboard");
+});
+
 app.get("/login", (req, res) => {
   res.render("login");
 });
