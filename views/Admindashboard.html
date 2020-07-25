@@ -1,11 +1,11 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" dir="ltr">
 
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Login</title>
+    <title>Dashboard</title>
 
     <!-- Prevent the demo from appearing in search engines -->
     <meta name="robots" content="noindex">
@@ -33,13 +33,45 @@
     <!-- App CSS -->
     <link type="text/css" href="assets\css\app.css" rel="stylesheet">
 
-    <!-- Coustom CSS -->
-    <link type="text/css" href="assets\css\style.css" rel="stylesheet">
+
 
 
 
 
 </head>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 <body class="layout-app ">
@@ -61,8 +93,7 @@
 
 
 
-            <div class="navbar navbar-expand navbar-light border-bottom-2" id="default-navbar" data-primary="">
-
+            <div class="navbar navbar-expand pr-0 navbar-light border-bottom-2" id="default-navbar" data-primary="">
                 <!-- Navbar toggler -->
                 <button class="navbar-toggler w-auto mr-16pt d-block d-lg-none rounded-0" type="button" data-toggle="sidebar">
                     <span class="material-icons">short_text</span>
@@ -70,94 +101,173 @@
 
                 <!-- Navbar Brand -->
                 <a href="index.html" class="navbar-brand mr-16pt d-lg-none">
-                    <!-- <img class="navbar-brand-icon" src="assets/images/logo/white-100@2x.png" width="30" alt="Luma"> -->
 
                     <span class="avatar avatar-sm navbar-brand-icon mr-0 mr-lg-8pt">
 
-                        <span class="avatar-title rounded bg-primary"><img src="assets\images\TheNudge logo.png" alt="logo" class="img-fluid"></span>
+                        <span class="avatar-title rounded bg-primary"><img src="assets\images\illustration\student\128\white.svg" alt="logo" class="img-fluid"></span>
 
                     </span>
 
                     <span class="d-none d-lg-block">The Nudge</span>
                 </a>
 
-                <ul class="nav navbar-nav d-none d-sm-flex flex justify-content-start ml-8pt">
-                    <li class="nav-item">
-                        <a href="index.html" class="nav-link">Home</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" data-caret="false">Courses</a>
-                        <div class="dropdown-menu">
-                            <a href="courses.html" class="dropdown-item">Browse Courses</a>
-                            <a href="student-course.html" class="dropdown-item">Preview Course</a>
-                            <a href="student-lesson.html" class="dropdown-item">Preview Lesson</a>
-                            <a href="student-take-course.html" class="dropdown-item"><span class="mr-16pt">Take Course</span> <span class="badge badge-notifications badge-accent text-uppercase ml-auto">Pro</span></a>
-                            <a href="student-take-lesson.html" class="dropdown-item">Take Lesson</a>
-                            <a href="student-take-quiz.html" class="dropdown-item">Take Quiz</a>
-                            <a href="student-quiz-result-details.html" class="dropdown-item">Quiz Result</a>
-                            <a href="student-dashboard.html" class="dropdown-item">Student Dashboard</a>
-                            <a href="student-my-courses.html" class="dropdown-item">My Courses</a>
-                            <a href="student-quiz-results.html" class="dropdown-item">My Quizzes</a>
-                            <a href="help-center.html" class="dropdown-item">Help Center</a>
+
+                <div class="flex"></div>
+
+
+                <!-- Toggler -->
+                <a href="compact-instructor-dashboard.html" class="navbar-toggler navbar-toggler-custom align-items-center justify-content-center d-none d-lg-flex" data-toggle="tooltip" data-title="Switch to Compact Layout" data-placement="bottom" data-boundary="window">
+                    <span class="material-icons">swap_horiz</span>
+                </a>
+
+
+                <div class="nav navbar-nav flex-nowrap d-flex mr-16pt">
+
+
+                    <!-- Notifications dropdown -->
+                    <div class="nav-item dropdown dropdown-notifications dropdown-xs-down-full" data-toggle="tooltip" data-title="Messages" data-placement="bottom" data-boundary="window">
+                        <button class="nav-link btn-flush dropdown-toggle" type="button" data-toggle="dropdown" data-caret="false">
+                            <i class="material-icons icon-24pt">mail_outline</i>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <div data-perfect-scrollbar="" class="position-relative">
+                                <div class="dropdown-header"><strong>Messages</strong></div>
+                                <div class="list-group list-group-flush mb-0">
+
+                                    <a href="javascript:void(0);" class="list-group-item list-group-item-action unread">
+                                        <span class="d-flex align-items-center mb-1">
+                                            <small class="text-black-50">5 minutes ago</small>
+
+                                            <span class="ml-auto unread-indicator bg-accent"></span>
+
+                                        </span>
+                                        <span class="d-flex">
+                                            <span class="avatar avatar-xs mr-2">
+                                                <img src="assets\images\people\110\woman-5.jpg" alt="people" class="avatar-img rounded-circle">
+                                            </span>
+                                            <span class="flex d-flex flex-column">
+                                                <strong class="text-black-100">Michelle</strong>
+                                                <span class="text-black-70">Clients loved the new design.</span>
+                                            </span>
+                                        </span>
+                                    </a>
+
+                                    <a href="javascript:void(0);" class="list-group-item list-group-item-action">
+                                        <span class="d-flex align-items-center mb-1">
+                                            <small class="text-black-50">5 minutes ago</small>
+
+                                        </span>
+                                        <span class="d-flex">
+                                            <span class="avatar avatar-xs mr-2">
+                                                <img src="assets\images\people\110\woman-5.jpg" alt="people" class="avatar-img rounded-circle">
+                                            </span>
+                                            <span class="flex d-flex flex-column">
+                                                <strong class="text-black-100">Michelle</strong>
+                                                <span class="text-black-70">ðŸ”¥ Superb job..</span>
+                                            </span>
+                                        </span>
+                                    </a>
+
+                                </div>
+                            </div>
                         </div>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" data-caret="false">Paths</a>
-                        <div class="dropdown-menu">
-                            <a href="paths.html" class="dropdown-item">Browse Paths</a>
-                            <a href="student-path.html" class="dropdown-item">Path Details</a>
-                            <a href="student-path-assessment.html" class="dropdown-item">Skill Assessment</a>
-                            <a href="student-path-assessment-result.html" class="dropdown-item">Skill Result</a>
-                            <a href="student-paths.html" class="dropdown-item">My Paths</a>
+                    </div>
+                    <!-- // END Notifications dropdown -->
+
+
+                    <!-- Notifications dropdown -->
+                    <div class="nav-item ml-16pt dropdown dropdown-notifications dropdown-xs-down-full" data-toggle="tooltip" data-title="Notifications" data-placement="bottom" data-boundary="window">
+                        <button class="nav-link btn-flush dropdown-toggle" type="button" data-toggle="dropdown" data-caret="false">
+                            <i class="material-icons">notifications_none</i>
+                            <span class="badge badge-notifications badge-accent">2</span>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <div data-perfect-scrollbar="" class="position-relative">
+                                <div class="dropdown-header"><strong>System notifications</strong></div>
+                                <div class="list-group list-group-flush mb-0">
+
+                                    <a href="javascript:void(0);" class="list-group-item list-group-item-action unread">
+                                        <span class="d-flex align-items-center mb-1">
+                                            <small class="text-black-50">3 minutes ago</small>
+
+                                            <span class="ml-auto unread-indicator bg-accent"></span>
+
+                                        </span>
+                                        <span class="d-flex">
+                                            <span class="avatar avatar-xs mr-2">
+                                                <span class="avatar-title rounded-circle bg-light">
+                                                    <i class="material-icons font-size-16pt text-accent">account_circle</i>
+                                                </span>
+                                            </span>
+                                            <span class="flex d-flex flex-column">
+
+                                                <span class="text-black-70">Your profile information has not been synced correctly.</span>
+                                            </span>
+                                        </span>
+                                    </a>
+
+                                    <a href="javascript:void(0);" class="list-group-item list-group-item-action">
+                                        <span class="d-flex align-items-center mb-1">
+                                            <small class="text-black-50">5 hours ago</small>
+
+                                        </span>
+                                        <span class="d-flex">
+                                            <span class="avatar avatar-xs mr-2">
+                                                <span class="avatar-title rounded-circle bg-light">
+                                                    <i class="material-icons font-size-16pt text-primary">group_add</i>
+                                                </span>
+                                            </span>
+                                            <span class="flex d-flex flex-column">
+                                                <strong class="text-black-100">Adrian. D</strong>
+                                                <span class="text-black-70">Wants to join your private group.</span>
+                                            </span>
+                                        </span>
+                                    </a>
+
+                                    <a href="javascript:void(0);" class="list-group-item list-group-item-action">
+                                        <span class="d-flex align-items-center mb-1">
+                                            <small class="text-black-50">1 day ago</small>
+
+                                        </span>
+                                        <span class="d-flex">
+                                            <span class="avatar avatar-xs mr-2">
+                                                <span class="avatar-title rounded-circle bg-light">
+                                                    <i class="material-icons font-size-16pt text-warning">storage</i>
+                                                </span>
+                                            </span>
+                                            <span class="flex d-flex flex-column">
+
+                                                <span class="text-black-70">Your deploy was successful.</span>
+                                            </span>
+                                        </span>
+                                    </a>
+
+                                </div>
+                            </div>
                         </div>
-                    </li>
-                    <li class="nav-item">
-                        <a href="pricing.html" class="nav-link">Pricing</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" data-caret="false">Teachers</a>
-                        <div class="dropdown-menu">
-                            <a href="instructor-dashboard.html" class="dropdown-item">Instructor Dashboard</a>
-                            <a href="instructor-courses.html" class="dropdown-item">Manage Courses</a>
-                            <a href="instructor-quizzes.html" class="dropdown-item">Manage Quizzes</a>
-                            <a href="instructor-earnings.html" class="dropdown-item">Earnings</a>
-                            <a href="instructor-statement.html" class="dropdown-item">Statement</a>
-                            <a href="instructor-edit-course.html" class="dropdown-item">Edit Course</a>
-                            <a href="instructor-edit-quiz.html" class="dropdown-item">Edit Quiz</a>
-                        </div>
-                    </li>
-                    <li class="nav-item dropdown" data-toggle="tooltip" data-title="Community" data-placement="bottom" data-boundary="window">
-                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" data-caret="false">
-                            <i class="material-icons">people_outline</i>
+                    </div>
+                    <!-- // END Notifications dropdown -->
+
+
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link d-flex align-items-center dropdown-toggle" data-toggle="dropdown" data-caret="false">
+
+                            <span class="avatar avatar-sm mr-8pt2">
+
+                                <span class="avatar-title rounded-circle bg-primary"><i class="material-icons">account_box</i></span>
+
+                            </span>
+
                         </a>
-                        <div class="dropdown-menu">
-                            <a href="teachers.html" class="dropdown-item">Browse Teachers</a>
-                            <a href="student-profile.html" class="dropdown-item">Student Profile</a>
-                            <a href="teacher-profile.html" class="dropdown-item">Instructor Profile</a>
-                            <a href="blog.html" class="dropdown-item">Blog</a>
-                            <a href="blog-post.html" class="dropdown-item">Blog Post</a>
-                            <a href="faq.html" class="dropdown-item">FAQ</a>
-                            <a href="help-center.html" class="dropdown-item">Help Center</a>
-                            <a href="discussions.html" class="dropdown-item">Discussions</a>
-                            <a href="discussion.html" class="dropdown-item">Discussion Details</a>
-                            <a href="discussions-ask.html" class="dropdown-item">Ask Question</a>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <div class="dropdown-header"><strong>Account</strong></div>
+                            <a class="dropdown-item" href="edit-account.html">Edit Account</a>
+                            <a class="dropdown-item" href="billing.html">Billing</a>
+                            <a class="dropdown-item" href="billing-history.html">Payments</a>
+                            <a class="dropdown-item" href="login.html">Logout</a>
                         </div>
-                    </li>
-                </ul>
-
-
-
-
-
-
-                <ul class="nav navbar-nav ml-auto mr-0">
-                    <li class="nav-item active">
-                        <a href="login.html" class="nav-link" data-toggle="tooltip" data-title="Login" data-placement="bottom" data-boundary="window"><i class="material-icons">lock_open</i></a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="signup.html" class="btn btn-outline-dark">Get Started</a>
-                    </li>
-                </ul>
+                    </div>
+                </div>
             </div>
 
 
@@ -167,116 +277,167 @@
 
 
 
+            <div class="pt-32pt">
+                <div class="container page__container d-flex flex-column flex-md-row align-items-center text-center text-sm-left">
+                    <div class="flex d-flex flex-column flex-sm-row align-items-center mb-24pt mb-md-0">
 
+                        <div class="mb-24pt mb-sm-0 mr-sm-24pt">
+                            <h2 class="mb-0">Admin Dashboard</h2>
 
+                            <ol class="breadcrumb p-0 m-0">
+                                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
 
+                                <li class="breadcrumb-item active">
 
+                                    Admin Dashboard
 
+                                </li>
 
-            <div>
-                <div>
-                    <button class="tablink" onclick="openPage('adminTab', this, '#1979a9')">Admin</button>
-                    <button class="tablink" onclick="openPage('studentTab', this, '#1979a9')" id="defaultOpen">Student</button>
-                    <button class="tablink" onclick="openPage('teacherTab', this, '#1979a9')">Teacher</button>
-                </div>
+                            </ol>
 
-                <div id="adminTab" class="tabcontent">
-                    <div class="pt-32pt pt-sm-64pt pb-32pt">
-                        <div class="container page__container">
-                            <form action="index.html" class="col-md-5 p-0 mx-auto">
-                                <div class="form-group">
-                                    <label class="form-label" for="email">Email:</label>
-                                    <input id="email" type="text" class="form-control" placeholder="Email address ...">
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label" for="password">Password:</label>
-                                    <input id="password" type="password" class="form-control" placeholder="Password ...">
-                                    <p class="text-right"><a href="reset-password.html" class="small">Forgot your password?</a></p>
-                                </div>
-                                <div class="text-center">
-                                    <button class="btn btn-primary">Admin Login</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-                <div id="studentTab" class="tabcontent">
-                    <div class="pt-32pt pt-sm-64pt pb-32pt">
-                        <div class="container page__container">
-                            <form action="index.html" class="col-md-5 p-0 mx-auto">
-                                <div class="form-group">
-                                    <label class="form-label" for="email">Email:</label>
-                                    <input id="email" type="text" class="form-control" placeholder="Email address ...">
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label" for="password">Password:</label>
-                                    <input id="password" type="password" class="form-control" placeholder="Password ...">
-                                    <p class="text-right"><a href="reset-password.html" class="small">Forgot your password?</a></p>
-                                    <p class="text-right"><a href="StudentRegisterPage.html" class="small">Don't have a account? Register.</a></p>
-
-                                    <!-- SIGN UP LINK NEEDED ^ -->
-
-
-                                </div>
-                                <div class="text-center">
-                                    <button class="btn btn-primary">Student Login</button>
-                                </div>
-                            </form>
                         </div>
                     </div>
 
-                    <div class="page-separator justify-content-center m-0">
-                        <div class="page-separator__text">or sign-in with</div>
-                    </div>
-                    <div class="bg-body pt-32pt pb-32pt pb-md-64pt text-center">
-                        <div class="container page__container">
-                            <a href="index.html" class="btn btn-secondary btn-block-xs">Google</a>
-                        </div>
-                    </div>
-                </div>
-                <div id="teacherTab" class="tabcontent">
-                    <div class="pt-32pt pt-sm-64pt pb-32pt">
-                        <div class="container page__container">
-                            <form action="index.html" class="col-md-5 p-0 mx-auto">
-                                <div class="form-group">
-                                    <label class="form-label" for="email">Email:</label>
-                                    <input id="email" type="text" class="form-control" placeholder="Email address ...">
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label" for="password">Password:</label>
-                                    <input id="password" type="password" class="form-control" placeholder="Password ...">
-                                    <p class="text-right"><a href="reset-password.html" class="small">Forgot your password?</a></p>
-                                    <p class="text-right"><a href="Teacher-Registration.html" class="small">Don't have a account? Register.</a></p>
 
-                                    <!-- SIGN UP LINK NEEDED ^ -->
+                    
 
-
-                                </div>
-                                <div class="text-center">
-                                    <button class="btn btn-primary">Teacher Login</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-
-                    <div class="page-separator justify-content-center m-0">
-                        <div class="page-separator__text">or sign-in with</div>
-                    </div>
-                    <div class="bg-body pt-32pt pb-32pt pb-md-64pt text-center">
-                        <div class="container page__container">
-                            <a href="index.html" class="btn btn-secondary btn-block-xs">Google</a>
-                        </div>
-                    </div>
                 </div>
             </div>
-            
-            
 
 
 
-            
-            
-            
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <div class="page-section border-bottom-2">
+                <div class="container page__container">
+
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <div class="card border-1 border-left-3 border-left-accent text-center mb-lg-0">
+                                <div class="card-body">
+                                    <h4 class="h2 mb-0">120</h4>
+                                    <div>Total Teachers</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="card text-center mb-lg-0">
+                                <div class="card-body">
+                                    <h4 class="h2 mb-0">1200</h4>
+                                    <div>Total Students</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="card text-center mb-lg-0">
+                                <div class="card-body">
+                                    <h4 class="h2 mb-0">25</h4>
+                                    <div>Total Courses</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="container page__container page-section">
+
+                <div class="page-separator">
+                    <div class="page-separator__text">Treacher Requests</div>
+                </div>
+                <div class="card card-body mb-32pt">
+                    
+                    <span>
+                        <div class="row card-group-row">
+
+                            <div class="card-group-row__col col-md-6">
+                                <div class="card card-group-row__card card-sm">
+                                    <div class="card-body d-flex align-items-center">
+                                        <a href="instructor-edit-quiz.html" class="avatar overlay overlay--primary avatar-4by3 mr-12pt">
+                                            <img src="assets\images\paths\angular_routing_200x168.png" alt="Angular Routing In-Depth" class="avatar-img rounded">
+                                            <span class="overlay__content"></span>
+                                        </a>
+                                        <div class="flex">
+                                            <a class="card-title" href="instructor-edit-quiz.html">Ojaswa Chauarasia</a>
+                                        </div>
+                                    </div>
+                                    <div class="card-footer">
+                                        <div class="d-flex align-items-center">
+                                            
+
+                                            <div class="dropdown">
+                                                <a href="#" data-toggle="dropdown" data-caret="false" class="text-muted"><i class="material-icons">more_horiz</i></a>
+                                                <div class="dropdown-menu dropdown-menu-right">
+                                                    <a href="javascript:void(0)" class="dropdown-item">View Teacher Profile</a>
+                                                    <div class="dropdown-divider"></div>
+                                                    <a href="javascript:void(0)" class="dropdown-item text-danger deleterequest">Delete Request</a>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </span>
+                    <span>
+                        <div class="row card-group-row">
+
+                            <div class="card-group-row__col col-md-6">
+                                <div class="card card-group-row__card card-sm">
+                                    <div class="card-body d-flex align-items-center">
+                                        <a href="instructor-edit-quiz.html" class="avatar overlay overlay--primary avatar-4by3 mr-12pt">
+                                            <img src="assets\images\paths\angular_routing_200x168.png" alt="Angular Routing In-Depth" class="avatar-img rounded">
+                                            <span class="overlay__content"></span>
+                                        </a>
+                                        <div class="flex">
+                                            <a class="card-title" href="instructor-edit-quiz.html">Ojaswa Chauarasia</a>
+                                        </div>
+                                    </div>
+                                    <div class="card-footer">
+                                        <div class="d-flex align-items-center">
+                                            
+
+                                            <div class="dropdown">
+                                                <a href="#" data-toggle="dropdown" data-caret="false" class="text-muted"><i class="material-icons">more_horiz</i></a>
+                                                <div class="dropdown-menu dropdown-menu-right">
+                                                    <a href="javascript:void(0)" class="dropdown-item">View Teacher Profile</a>
+                                                    <div class="dropdown-divider"></div>
+                                                    <a href="javascript:void(0)" class="dropdown-item text-danger deleterequest">Delete Request</a>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </span>
+                </div>
+                <!-- <div class="card card-body mb-32pt">
+                    <div id="legend" class="chart-legend mt-0 mb-24pt justify-content-start"></div>
+                    <div class="chart" style="height: 320px;">
+                        <canvas id="earningsChart" class="chart-canvas js-update-chart-bar" data-chart-legend="#legend" data-chart-line-background-color="gradient:primary,gray" data-chart-prefix="$" data-chart-suffix="k"></canvas>
+                    </div>
+                </div> -->
+
+                
+
+            </div>
 
 
 
@@ -284,9 +445,9 @@
             <div class="js-fix-footer2 bg-white border-top-2">
                 <div class="container page__container page-section d-flex flex-column">
                     <p class="text-70 brand mb-24pt">
-                        <img class="brand-icon" src="assets\images\logo\black-70@2x.png" width="30" alt="Luma"> The Nudge
+                        <img class="brand-icon" src="assets\images\logo\black-70@2x.png" width="30" alt="Luma"> Luma
                     </p>
-                    <p class="measure-lead-max text-50 small mr-8pt">The/Nudge Foundation is a collective of some of India’s brightest entrepreneurs, leaders and change-makers, tackling the greatest human development challenge of our times - poverty.</p>
+                    <p class="measure-lead-max text-50 small mr-8pt">Luma is a beautifully crafted user interface for modern Education Platforms, including Courses & Tutorials, Video Lessons, Student and Teacher Dashboard, Curriculum Management, Earnings and Reporting, ERP, HR, CMS, Tasks, Projects, eCommerce and more.</p>
                     <p class="mb-8pt d-flex">
                         <a href="" class="text-70 text-underline mr-8pt small">Terms</a>
                         <a href="" class="text-70 text-underline small">Privacy policy</a>
@@ -318,7 +479,7 @@
 
 
                     <a href="index.html" class="sidebar-brand ">
-                        <!-- <img class="sidebar-brand-icon" src="assets/images/illustration/student/128/white.svg" alt="Luma"> -->
+                        <!-- <img class="sidebar-brand-icon" src="assets/images/illustration/teacher/128/white.svg" alt="Luma"> -->
 
                         <span class="avatar avatar-xl sidebar-brand-icon h-auto">
 
@@ -326,179 +487,168 @@
 
                         </span>
 
+                        
                     </a>
 
 
 
 
 
+                    <div class="sidebar-heading">Instructor</div>
+                    <ul class="sidebar-menu">
+
+
+                        <li class="sidebar-menu-item active">
+                            <a class="sidebar-menu-button" href="instructor-dashboard.html">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">school</span>
+                                <span class="sidebar-menu-text">Instructor Dashboard</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button" href="instructor-courses.html">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">import_contacts</span>
+                                <span class="sidebar-menu-text">Manage Courses</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button" href="instructor-quizzes.html">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">help</span>
+                                <span class="sidebar-menu-text">Manage Quizzes</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button" href="instructor-earnings.html">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">trending_up</span>
+                                <span class="sidebar-menu-text">Earnings</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button" href="instructor-statement.html">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">receipt</span>
+                                <span class="sidebar-menu-text">Statement</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button" href="instructor-edit-course.html">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">post_add</span>
+                                <span class="sidebar-menu-text">Edit Course</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button" href="instructor-edit-quiz.html">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">format_shapes</span>
+                                <span class="sidebar-menu-text">Edit Quiz</span>
+                            </a>
+                        </li>
+
+                    </ul>
+                    <div class="sidebar-heading">Student</div>
+                    <ul class="sidebar-menu">
+
+
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button" href="index.html">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">home</span>
+                                <span class="sidebar-menu-text">Home</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button" href="courses.html">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">local_library</span>
+                                <span class="sidebar-menu-text">Browse Courses</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button" href="paths.html">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">style</span>
+                                <span class="sidebar-menu-text">Browse Paths</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button" href="student-dashboard.html">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">account_box</span>
+                                <span class="sidebar-menu-text">Student Dashboard</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button" href="student-my-courses.html">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">search</span>
+                                <span class="sidebar-menu-text">My Courses</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button" href="student-paths.html">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">timeline</span>
+                                <span class="sidebar-menu-text">My Paths</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button" href="student-path.html">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">change_history</span>
+                                <span class="sidebar-menu-text">Path Details</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button" href="student-course.html">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">face</span>
+                                <span class="sidebar-menu-text">Course Preview</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button" href="student-lesson.html">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">panorama_fish_eye</span>
+                                <span class="sidebar-menu-text">Lesson Preview</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button" href="student-take-course.html">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">class</span>
+                                <span class="sidebar-menu-text">Take Course</span>
+                                <span class="sidebar-menu-badge badge badge-accent badge-notifications ml-auto">PRO</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button" href="student-take-lesson.html">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">import_contacts</span>
+                                <span class="sidebar-menu-text">Take Lesson</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button" href="student-take-quiz.html">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">dvr</span>
+                                <span class="sidebar-menu-text">Take Quiz</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button" href="student-quiz-results.html">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">poll</span>
+                                <span class="sidebar-menu-text">My Quizzes</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button" href="student-quiz-result-details.html">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">live_help</span>
+                                <span class="sidebar-menu-text">Quiz Result</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button" href="student-path-assessment.html">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">layers</span>
+                                <span class="sidebar-menu-text">Skill Assessment</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button" href="student-path-assessment-result.html">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">assignment_turned_in</span>
+                                <span class="sidebar-menu-text">Skill Result</span>
+                            </a>
+                        </li>
+
+                    </ul>
+
 
                     <div class="sidebar-heading">Applications</div>
                     <ul class="sidebar-menu">
-
-                        <li class="sidebar-menu-item">
-                            <a class="sidebar-menu-button js-sidebar-collapse" data-toggle="collapse" href="#student_menu">
-                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">school</span>
-                                Student
-                                <span class="ml-auto sidebar-menu-toggle-icon"></span>
-                            </a>
-                            <ul class="sidebar-submenu collapse sm-indent" id="student_menu">
-
-
-                                <li class="sidebar-menu-item">
-                                    <a class="sidebar-menu-button" href="index.html">
-
-                                        <span class="sidebar-menu-text">Home</span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-menu-item">
-                                    <a class="sidebar-menu-button" href="courses.html">
-
-                                        <span class="sidebar-menu-text">Browse Courses</span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-menu-item">
-                                    <a class="sidebar-menu-button" href="paths.html">
-
-                                        <span class="sidebar-menu-text">Browse Paths</span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-menu-item">
-                                    <a class="sidebar-menu-button" href="student-dashboard.html">
-
-                                        <span class="sidebar-menu-text">Student Dashboard</span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-menu-item">
-                                    <a class="sidebar-menu-button" href="student-my-courses.html">
-
-                                        <span class="sidebar-menu-text">My Courses</span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-menu-item">
-                                    <a class="sidebar-menu-button" href="student-paths.html">
-
-                                        <span class="sidebar-menu-text">My Paths</span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-menu-item">
-                                    <a class="sidebar-menu-button" href="student-path.html">
-
-                                        <span class="sidebar-menu-text">Path Details</span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-menu-item">
-                                    <a class="sidebar-menu-button" href="student-course.html">
-
-                                        <span class="sidebar-menu-text">Course Preview</span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-menu-item">
-                                    <a class="sidebar-menu-button" href="student-lesson.html">
-
-                                        <span class="sidebar-menu-text">Lesson Preview</span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-menu-item">
-                                    <a class="sidebar-menu-button" href="student-take-course.html">
-
-                                        <span class="sidebar-menu-text">Take Course</span>
-                                        <span class="sidebar-menu-badge badge badge-accent badge-notifications ml-auto">PRO</span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-menu-item">
-                                    <a class="sidebar-menu-button" href="student-take-lesson.html">
-
-                                        <span class="sidebar-menu-text">Take Lesson</span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-menu-item">
-                                    <a class="sidebar-menu-button" href="student-take-quiz.html">
-
-                                        <span class="sidebar-menu-text">Take Quiz</span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-menu-item">
-                                    <a class="sidebar-menu-button" href="student-quiz-results.html">
-
-                                        <span class="sidebar-menu-text">My Quizzes</span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-menu-item">
-                                    <a class="sidebar-menu-button" href="student-quiz-result-details.html">
-
-                                        <span class="sidebar-menu-text">Quiz Result</span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-menu-item">
-                                    <a class="sidebar-menu-button" href="student-path-assessment.html">
-
-                                        <span class="sidebar-menu-text">Skill Assessment</span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-menu-item">
-                                    <a class="sidebar-menu-button" href="student-path-assessment-result.html">
-
-                                        <span class="sidebar-menu-text">Skill Result</span>
-                                    </a>
-                                </li>
-
-                            </ul>
-                        </li>
-                        <li class="sidebar-menu-item">
-                            <a class="sidebar-menu-button js-sidebar-collapse" data-toggle="collapse" href="#instructor_menu">
-                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">format_shapes</span>
-                                Instructor
-                                <span class="ml-auto sidebar-menu-toggle-icon"></span>
-                            </a>
-                            <ul class="sidebar-submenu collapse sm-indent" id="instructor_menu">
-
-
-                                <li class="sidebar-menu-item">
-                                    <a class="sidebar-menu-button" href="instructor-dashboard.html">
-
-                                        <span class="sidebar-menu-text">Instructor Dashboard</span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-menu-item">
-                                    <a class="sidebar-menu-button" href="instructor-courses.html">
-
-                                        <span class="sidebar-menu-text">Manage Courses</span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-menu-item">
-                                    <a class="sidebar-menu-button" href="instructor-quizzes.html">
-
-                                        <span class="sidebar-menu-text">Manage Quizzes</span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-menu-item">
-                                    <a class="sidebar-menu-button" href="instructor-earnings.html">
-
-                                        <span class="sidebar-menu-text">Earnings</span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-menu-item">
-                                    <a class="sidebar-menu-button" href="instructor-statement.html">
-
-                                        <span class="sidebar-menu-text">Statement</span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-menu-item">
-                                    <a class="sidebar-menu-button" href="instructor-edit-course.html">
-
-                                        <span class="sidebar-menu-text">Edit Course</span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-menu-item">
-                                    <a class="sidebar-menu-button" href="instructor-edit-quiz.html">
-
-                                        <span class="sidebar-menu-text">Edit Quiz</span>
-                                    </a>
-                                </li>
-
-                            </ul>
-                        </li>
 
 
 
@@ -683,19 +833,19 @@
                                 </li>
                             </ul>
                         </li>
-                        <li class="sidebar-menu-item active open">
+                        <li class="sidebar-menu-item">
                             <a class="sidebar-menu-button" data-toggle="collapse" href="#account_menu">
                                 <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">account_box</span>
                                 Account
                                 <span class="ml-auto sidebar-menu-toggle-icon"></span>
                             </a>
-                            <ul class="sidebar-submenu collapse show sm-indent" id="account_menu">
+                            <ul class="sidebar-submenu collapse sm-indent" id="account_menu">
                                 <li class="sidebar-menu-item">
                                     <a class="sidebar-menu-button" href="pricing.html">
                                         <span class="sidebar-menu-text">Pricing</span>
                                     </a>
                                 </li>
-                                <li class="sidebar-menu-item active">
+                                <li class="sidebar-menu-item">
                                     <a class="sidebar-menu-button" href="login.html">
                                         <span class="sidebar-menu-text">Login</span>
                                     </a>
@@ -1030,37 +1180,37 @@
                             </a>
                             <ul class="sidebar-submenu collapse sm-indent" id="layouts_menu">
                                 <li class="sidebar-menu-item">
-                                    <a class="sidebar-menu-button" href="compact-login.html">
+                                    <a class="sidebar-menu-button" href="compact-instructor-dashboard.html">
                                         <span class="sidebar-menu-text">Compact</span>
                                     </a>
                                 </li>
                                 <li class="sidebar-menu-item">
-                                    <a class="sidebar-menu-button" href="mini-login.html">
+                                    <a class="sidebar-menu-button" href="mini-instructor-dashboard.html">
                                         <span class="sidebar-menu-text">Mini</span>
                                     </a>
                                 </li>
                                 <li class="sidebar-menu-item">
-                                    <a class="sidebar-menu-button" href="mini-secondary-login.html">
+                                    <a class="sidebar-menu-button" href="mini-secondary-instructor-dashboard.html">
                                         <span class="sidebar-menu-text">Mini + Secondary</span>
                                     </a>
                                 </li>
                                 <li class="sidebar-menu-item active">
-                                    <a class="sidebar-menu-button" href="login.html">
+                                    <a class="sidebar-menu-button" href="instructor-dashboard.html">
                                         <span class="sidebar-menu-text">App</span>
                                     </a>
                                 </li>
                                 <li class="sidebar-menu-item">
-                                    <a class="sidebar-menu-button" href="boxed-login.html">
+                                    <a class="sidebar-menu-button" href="boxed-instructor-dashboard.html">
                                         <span class="sidebar-menu-text">Boxed</span>
                                     </a>
                                 </li>
                                 <li class="sidebar-menu-item">
-                                    <a class="sidebar-menu-button" href="sticky-login.html">
+                                    <a class="sidebar-menu-button" href="sticky-instructor-dashboard.html">
                                         <span class="sidebar-menu-text">Sticky</span>
                                     </a>
                                 </li>
                                 <li class="sidebar-menu-item">
-                                    <a class="sidebar-menu-button" href="fixed-login.html">
+                                    <a class="sidebar-menu-button" href="fixed-instructor-dashboard.html">
                                         <span class="sidebar-menu-text">Fixed</span>
                                     </a>
                                 </li>
@@ -1100,11 +1250,35 @@
     <!-- App JS -->
     <script src="assets\js\app.js"></script>
 
-    <!-- Custom JS -->
-    <script src="assets\js\custom.js"></script>
+
+    <!-- Global Settings -->
+    <script src="assets\js\settings.js"></script>
+
+    <!-- Moment.js -->
+    <script src="assets\vendor\moment.min.js"></script>
+    <script src="assets\vendor\moment-range.min.js"></script>
+
+    <!-- Chart.js -->
+    <script src="assets\vendor\Chart.min.js"></script>
+
+    <!-- UI Charts Page JS -->
+    <script src="assets\js\chartjs-rounded-bar.js"></script>
+    <script src="assets\js\chartjs.js"></script>
+
+    <!-- Chart.js Samples -->
+    <script src="assets\js\page.instructor-dashboard.js"></script>
+
+    <!-- List.js -->
+    <script src="assets\vendor\list.min.js"></script>
+    <script src="assets\js\list.js"></script>
 
 
-
+    <!-- To delete teacher request on click -->
+    <script> 
+        $('.deleterequest').on('click', function() {
+            $(this).closest('span').remove();
+        });
+    </script>
 
 </body>
 
