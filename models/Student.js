@@ -28,13 +28,16 @@ const StudentSchema = new Schema({
     },
     TimePref : {
         type: Date,
-        timestamps: true
+        timestamps: true,
+        default: null
     },
     experience : {
         type : [String],
+        default: "No Prior Experience"
     },
     AdmissionQuiz : {
         type: Number,
+        default: "No Prior Experience"
     },
     BaselineTest : {
         type : Number
