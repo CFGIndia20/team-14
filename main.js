@@ -123,6 +123,7 @@ app.post("/register", (req, res) => {
   }
 });
 
+
 app.post(
   "/login-student",
   passport.authenticate("student", {
@@ -152,4 +153,8 @@ app.post(
 
 app.get("/dashboard", (req, res) => {
   res.render("home");
+});
+
+app.get("/login", (req, res) => {
+  res.render("login");
 });
