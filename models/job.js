@@ -5,7 +5,7 @@ const ObjectId = Schema.ObjectId;
 
 const JobSchema = new Schema({
   id: ObjectId,
-  Company: String
+  Company: String,
   Title: String,
   jobCategory: String,
   jobDescription: String,
