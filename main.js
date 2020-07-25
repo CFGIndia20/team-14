@@ -68,6 +68,7 @@ app.post("/register", (req, res) => {
     var newUser = new Teacher({
       username: req.body.username,
       slot: req.body.slot,
+      category: req.body.category,
     });
     Teacher.register(newUser, req.body.password, async function (err, user) {
       if (err) {
@@ -84,6 +85,7 @@ app.post("/register", (req, res) => {
   } else if (req.body.category == "Student") {
     var newUser = new Student({
       username: req.body.username,
+      category: req.body.category,
       // email: req.body.email,
       // dob: req.body.dob,
       // qualification: req.body.qualification,
@@ -104,6 +106,7 @@ app.post("/register", (req, res) => {
     var newUser = new Admin({
       username: req.body.username,
       email: req.body.email,
+      category: req.body.category,
     });
     Admin.register(newUser, req.body.password, async function (err, user) {
       if (err) {
@@ -119,6 +122,7 @@ app.post("/register", (req, res) => {
     });
   }
 });
+
 
 app.post(
   "/login-student",
@@ -149,4 +153,8 @@ app.post(
 
 app.get("/dashboard", (req, res) => {
   res.render("home");
+});
+
+app.get("/login", (req, res) => {
+  res.render("login");
 });
