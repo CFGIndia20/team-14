@@ -62,6 +62,13 @@ isLoggedIn = (req, res, next) => {
     return res.redirect("/login");
   }
 };
+//============================>Landing Page
+
+app.get("/",(req,res)=>{
+  res.render("home")
+})
+
+//==============Registration Page
 
 app.post("/register", (req, res) => {
   console.log(req.body);
