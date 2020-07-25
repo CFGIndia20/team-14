@@ -120,6 +120,7 @@ app.post("/register", (req, res) => {
   }
 });
 
+
 app.post(
   "/login-student",
   passport.authenticate("student", {

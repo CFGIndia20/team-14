@@ -15,6 +15,7 @@ const Admin = new mongoose.Schema({
     type: String,
     default: "",
   },
+  
 });
 
 Admin.plugin(passportLocalMongoose);
