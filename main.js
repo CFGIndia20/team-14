@@ -83,7 +83,8 @@ app.post("/register", (req, res) => {
         console.log(err);
         // req.flash("error1", "Username already exists");
         res.redirect("/login");
-      } else {
+      } 
+      else {
         await Teacher.authenticate("local")(req, res, function () {
           res.redirect("/dashboard");
           res.send("Registered");
