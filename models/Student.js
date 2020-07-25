@@ -3,7 +3,7 @@ const passportLocalMongoose = require("passport-local-mongoose");
 const Schema = mongoose.Schema;
 
 const Student = new Schema({
-  username: {
+  name: {
     type: String,
     // required: [true, "Name field is required"],
   },
@@ -15,10 +15,15 @@ const Student = new Schema({
     // required: [true, "D.O.B is required"],
     default: "",
   },
-  qualification: {
-    type: [String],
+  ssc: {
+    type: String,
     // required: [true, "Qualification is required"],
-    default: "",
+    default: null,
+  },
+  hsc: {
+    type: String,
+    // required: [true, "Qualification is required"],
+    default: null,
   },
   grad_date: {
     type: Date,
@@ -29,7 +34,7 @@ const Student = new Schema({
     // required: [true, "Phone is required"],
     default: "",
   },
-  email: {
+  username: {
     type: String,
     // required: [true, "Email is required"],
     default: "",
