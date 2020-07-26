@@ -323,6 +323,37 @@ app.get("/placement/jobs",(req,res)=>{
   })
 });
 
+//Get all the jobs with respect to categories
+app.get("/placement/jobs/:category",(req,res)=>{
+  Job.find({},(err,jobs)=>{
+    if(err) res.send(err);
+    else{
+      var Jobs = [];
+      jobs.forEach((job) => {
+        if(job.category === req.params.category){Jobs.push(job);}
+      })
+      res.send(Jobs);
+    }
+  })
+});
+
+//Get all the jobs which are not allocated yet
+app.get("/placement/jobs/unallocated",(req,res)=>{
+  console.log("sdkjvhdfv");
+  Job.find({},(err,jobs)=>{
+    if(err) res.send(err);
+    else{
+      var unAllJobs = [];
+      jobs.forEach((job) => {
+        if(job.allocatedTo == null){
+          unAllJobs.push(job);
+        }
+      });
+      res.send(unAllJobs);
+    }
+  })
+});
+
 //Post Jobs on the Placement Portal(Admin View)
 app.post("/placement/jobs",(req,res)=>{
   console.log(req.body);
@@ -330,6 +361,20 @@ app.post("/placement/jobs",(req,res)=>{
     if(err) res.send(err);
     else{
       res.send(job);
+    }
+  })
+})
+
+app.post("/placement/apply/:jobId/:stuId",(req,res)=>{
+  Job.findById({_id : req.params.jobId},function(err,job){
+    if(err) res.send(err);
+    else{
+      var applicants = job.applicants;
+      // applicants.push(req.user);
+      applicants.push(req.params.stuId);
+      Job.findByIdAndUpdate({_id : req.params.jobId},{applicants : applicants},function(err,job){
+        res.send(job);
+      })
     }
   })
 })
@@ -342,9 +387,9 @@ app.delete("/placement/job/:jobId",(req,res)=>{
   })
 })
 
-//Allocate the job 
+//Allocation of the job to a student 
 app.post("/placement/job/:jobId/:stuId",(req,res)=>{
-  Job.findById({_id:req.params.jobId},(function(err,job){
+  Job.findByIdAndUpdate({_id:req.params.jobId},{allocatedTo : req.params.stuId},(function(err,job){
     if(err) res.send(err);
     else{
       Student.findById({_id : req.params.stuId},function(err,student){

@@ -13,6 +13,20 @@ const JobSchema = new Schema({
     skills : {
         type : [String],
         default : []
+    },
+    category : {
+        type : String,
+        default : "Non Categorised"
+    },
+    applicants : [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Student",
+        default: null,
+    }],
+    allocatedTo : {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Student",
+        default: null,
     }
 })
 
