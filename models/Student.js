@@ -60,9 +60,12 @@ const Student = new Schema({
   category: {
     type: String,
   },
+  attendance: {
+    type: Number,
+    default: 0,
+  },
   batch: {
-    type: String,
-    default: "",
+    type: mongoose.Schema.Types.ObjectId,
   },
   level: {
     type: String,

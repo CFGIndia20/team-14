@@ -3,14 +3,12 @@ var express = require("express"),
   mongoose = require("mongoose"),
   Teacher = require("./models/Teacher"),
   Student = require("./models/Student"),
-  UnallocatedSlots = require("./models/UnallocatedSlots"),
-  RunningSlots = require("./models/RunningSlots"),
-  Batch = require("./models/Batch"),
   Admin = require("./models/Admin"),
   passport = require("passport"),
   localStrategy = require("passport-local"),
   passportLocalMongoose = require("passport-local-mongoose");
 const { request } = require("express");
+const Batch = require("./models/Batch");
 
 var app = express();
 app.listen(3000, () => {
@@ -30,7 +28,7 @@ mongoose
   })
   .catch((err) => {
     console.log("Error: ", err.message);
-});
+  });
 
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
@@ -92,8 +90,8 @@ app.post("/register", (req, res) => {
       name: req.body.name,
       category: req.body.category,
       username: req.body.username,
-      dob: req.body.dob,
-      grad_date: req.body.grad_date,
+      // dob: req.body.dob,
+      // grad_date: req.body.grad_date,
       experience: req.body.experience,
       hsc: req.body.hsc,
       ssc: req.body.ssc,
@@ -129,58 +127,11 @@ app.post("/register", (req, res) => {
     });
   }
 });
- 
-///++++++++++++++++++Update the Level of the Student on the basis of the test
-
-app.post("/:StudentId/EnterStudentLevel",(req,res) => {
-  console.log(req.body);
-  console.log(req.params.StudentId);
-  //Send the Student BaseLineTest Score and 
-  var level;
-  const score = parseInt(req.body.score);
-  console.log(score);
-  if(score > 70) level = "High";
-  if(score >=50) level = "Mid";
-  else level = "Low";
-  console.log(level);
-  
-  //update the student database with the level of the student
-  Student.findByIdAndUpdate({_id:req.params.StudentId},{level : level},function(err,student){
-    if(err) console.log(err);
-    else{
-      console.log(student);
-      //Allocation to a Dummy Batch 
-      UnallocatedSlots.find({},function(err,batches){
-        if(err) console.log(err);
-        else{
-          console.log(Object.keys(Object.keys(batches).length === 0));
-
-          if(Object.keys(batches).length === 0){
-            //If we don't have any batch, we make 3 batches => 1 for each skill level
-            Batch.create({Students : [],level : "Low"},function(err,batch){
-              if(err) console,log(err);
-              else console.log(batch);
-            })
-            Batch.create({Students : [],level : "Mid"},function(err,batch){
-              if(err) console,log(err);
-              else console.log(batch);
-            })
-            Batch.create({Students : [],level : "High"},function(err,batch){
-              if(err) console,log(err);
-              else console.log(batch);
-            })
-          }
-        }
-      })
-    }
-  })
-  res.send("Done");
-});
 
 app.post(
   "/login-student",
   passport.authenticate("student", {
-    successRedirect: "/dashboard",
+    successRedirect: "/quiz-student",
     failureRedirect: "/login",
   }),
   (req, res) => {}
@@ -189,7 +140,7 @@ app.post(
 app.post(
   "/login-teacher",
   passport.authenticate("teacher", {
-    successRedirect: "/dashboard",
+    successRedirect: "/quiz-teacher",
     failureRedirect: "/login",
   }),
   (req, res) => {}
@@ -224,9 +175,12 @@ app.get("/Teacher-Registration", (req, res) => {
   res.render("Teacher-Registration");
 });
 
-<<<<<<< HEAD
-app.get("/quiz", (req, res) => {
+app.get("/quiz-teacher", (req, res) => {
   res.render("quiz");
+});
+
+app.get("/quiz-student", (req, res) => {
+  res.render("quiz_student");
 });
 
 app.post("/data/quiz", (req, res) => {
@@ -260,48 +214,92 @@ app.post("/data/quiz", (req, res) => {
   console.log(answers);
   console.log(questions);
   console.log(correct);
+  var i = 0;
+  var batches = [];
+  console.log(req.isAuthenticated());
+  const teacher = Teacher.findById(req.user._id);
+  batches = teacher.batches;
+  while (i < batches.length) {
+    const batch = Batch.find({ _id: batches[i] });
+    const today = new Date();
+    if (batch.Time - today.getHours() == 0) {
+      Batch.findByIdAndUpdate(
+        batch._id,
+        { questions: questions, answers: answers, correct: correct },
+        (err, docs) => {
+          if (err) {
+            console.log(err);
+          } else {
+            console.log("Updated Batch : ", docs);
+          }
+        }
+      );
+    }
+  }
 });
-=======
 
+app.get("/student/quiz", (req, res) => {
+  const student = Student.findById(req.user._id);
+  const batch = Batch.findById(student.batch);
+  if (batch.questions != null) {
+    res
+      .status(200)
+      .json({ questions: questions, answers: answers, correct: correct });
+  }
+});
 
+app.post("/calculate", (req, res) => {
+  var answer = req.body.answer;
+  var correct = req.body.correct;
+  var student = Student.findById(req.user._id);
+  var score = student.score + 1;
+  var attendance = student.attendance + 1;
+  if (answer == correct) {
+    Student.findByIdAndUpdate(
+      req.user._id,
+      { score: score, attendance: attendance },
+      (err, docs) => {
+        if (err) {
+          console.log(err);
+        } else {
+          console.log("Updated Student : ", docs);
+        }
+      }
+    );
+  }
+});
 
-//++++++Temporary Ruotes++++++++++(Just to check the working in POSTMAN)
-app.get("/students",(req,res)=> {
-  console.log(req.body);
-  Student.find({},function(err,students){
-    if(err) {
-      console.log(err);
-      res.err(err);
+app.post("/batchTest", (req, res) => {
+  var newBatch = new Batch({
+    teacher: req.body.id,
+    level: req.body.level,
+  });
+  newBatch.save(function (err) {
+    if (!err) {
+      res.send({
+        status: true,
+      });
+    } else {
+      res.send({
+        status: false,
+      });
     }
-    else{
-      res.send(students);
-    }
-  })
-})
+  });
+});
 
-app.get("/batches",(req,res)=> {
-  console.log(req.body);
-  Batch.find({},function(err,batches){
-    if(err) {
-      console.log(err);
-      res.err(err);
+app.post("/studentTest", (req, res) => {
+  const student = Student.findByIdAndUpdate(
+    req.body.id,
+    { batch: req.body.batch },
+    (err, docs) => {
+      if (err) {
+        console.log(err);
+      } else {
+        console.log("Updated Student : ", docs);
+        res.send({
+          status: true,
+        });
+      }
     }
-    else{
-      res.send(batches);
-    }
-  })
-})
-
-app.get("/DeleteBatches",(req,res)=> {
-  console.log(req.body);
-  Batch.findOneAndDelete({},function(err,batches){
-    if(err) {
-      console.log(err);
-      res.send(err);
-    }
-    else{
-      res.send(batches);
-    }
-  })
-})
->>>>>>> 3fa197ad2b36e6fde1251638101903640a7dce69
+  );
+});
