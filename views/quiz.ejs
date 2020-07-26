@@ -1,3 +1,16 @@
+<!-- <form action="/data/quiz" method='POST'>
+        Question:
+        <input id="question "name="question" type="text"></input>
+        Answers:
+        <input id="answer1" name="answer1" type="text"></input>
+        <input id="answer2" name="answer2" type="text"></input>
+        <input id="answer3" name="answer3" type="text"></input>
+        <input id="answer4" name="answer4" type="text"></input>
+        Correct Answer:
+        <input id="correct" name="correct" type="text"></input>
+        <input type="submit">Post</input>
+</form> -->
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -84,7 +97,7 @@
               class="tablink"
               onclick="openPage('adminTab', this, '#1979a9')"
             >
-              Admin
+              Quiz
             </button>
             <button
               class="tablink"
@@ -104,84 +117,28 @@
           <div id="adminTab" class="tabcontent">
             <div class="pt-32pt pt-sm-64pt pb-32pt">
               <div class="container page__container">
-                <form action="/login-admin" class="col-md-5 p-0 mx-auto">
-                  <div class="form-group">
-                    <label class="form-label" for="email">Email:</label>
-                    <input
-                      id="email"
-                      type="text"
-                      name="username"
-                      class="form-control"
-                      placeholder="Your email address ..."
-                    />
-                  </div>
-                  <div class="form-group">
-                    <label class="form-label" for="password">Password:</label>
-                    <input
-                      id="password"
-                      type="password"
-                      name="password"
-                      class="form-control"
-                      placeholder="Your first and last name ..."
-                    />
-                  </div>
-                  <div class="text-center">
-                    <button type="submit" class="btn btn-primary">
-                      Admin Login
-                    </button>
-                  </div>
-                </form>
-              </div>
-            </div>
-          </div>
-          <div id="studentTab" class="tabcontent">
-            <div class="pt-32pt pt-sm-64pt pb-32pt">
-              <div class="container page__container">
-                <form action="/login-student" class="col-md-5 p-0 mx-auto">
-                  <div class="form-group">
-                    <label class="form-label" for="email">Email:</label>
-                    <input
-                      id="email"
-                      name="username"
-                      type="text"
-                      class="form-control"
-                      placeholder="Your email address ..."
-                    />
-                  </div>
-                  <div class="form-group">
-                    <label class="form-label" for="password">Password:</label>
-                    <input
-                      id="password"
-                      type="password"
-                      name="password"
-                      class="form-control"
-                      placeholder="Your first and last name ..."
-                    />
-                    <p class="text-right">
-                      <a href="/StudentRegisterPage" class="small"
-                        >Don't have a account? Register.</a
-                      >
-                    </p>
+                  <form action="/data/quiz" method='POST'>
+        <div id="fine">
+        <div>
+            <label class="form-label" for="email">Question1:</label>
+            <input id="question1 "name="question1" type="text"></input>
+        </div>            
+        <div>
+            <label class="form-label" for="email">Answers:</label>
+            <input id="answer11" name="answer11" type="text"></input>
+            <input id="answer12" name="answer12" type="text"></input>
+            <input id="answer13" name="answer13" type="text"></input>
+            <input id="answer14" name="answer14" type="text"></input>
+        </div>  
+        <div>
+            <label class="form-label" for="email">Correct Answer:</label>
+            <input id="correct1" name="correct1" type="text"></input>
+        </div>           
+    </div>
+        <button type="button" onclick="addMore()">Add+</button>
+        <input type="submit">Post</input>
+</form>
 
-                    <!-- SIGN UP LINK NEEDED ^ -->
-                  </div>
-                  <div class="text-center">
-                    <button type="submit" class="btn btn-primary">
-                      Student Login
-                    </button>
-                  </div>
-                </form>
-              </div>
-            </div>
-
-            <div class="page-separator justify-content-center m-0">
-              <div class="page-separator__text">or sign-in with</div>
-            </div>
-            <div class="bg-body pt-32pt pb-32pt pb-md-64pt text-center">
-              <div class="container page__container">
-                <a href="index.html" class="btn btn-secondary btn-block-xs"
-                  >Google</a
-                >
               </div>
             </div>
           </div>
@@ -333,5 +290,29 @@
 
     <!-- Custom JS -->
     <script src="\js\custom.js"></script>
+    <script>
+        var i=2;
+        function addMore(){
+            var txtNewLabel = document.createElement("div");
+            txtNewLabel.innerHTML = `<div>
+            <label class="form-label" for="email">Question${i}:</label>
+            <input id="question${i}" name="question${i}" type="text"></input>
+        </div>            
+        <div>
+            <label class="form-label" for="email">Answers:</label>
+            <input id="answer${i}1" name="answer${i}1" type="text"></input>
+            <input id="answer${i}2" name="answer${i}2" type="text"></input>
+            <input id="answer${i}3" name="answer${i}3" type="text"></input>
+            <input id="answer${i}4" name="answer${i}4" type="text"></input>
+        </div>  
+        <div>
+            <label class="form-label" for="email">Correct Answer:</label>
+            <input id="correct${i}" name="correct${i}" type="text"></input>
+        </div> `;
+
+        document.getElementById("fine").appendChild(txtNewLabel);
+        i++;
+        }
+    </script>
   </body>
 </html>

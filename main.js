@@ -11,6 +11,7 @@ var express = require("express"),
   passport = require("passport"),
   localStrategy = require("passport-local"),
   passportLocalMongoose = require("passport-local-mongoose");
+const { request } = require("express");
 
 var app = express();
 app.listen(3000, () => {
@@ -80,8 +81,7 @@ app.post("/register", (req, res) => {
         console.log(err);
         // req.flash("error1", "Username already exists");
         res.redirect("/login");
-      } 
-      else {
+      } else {
         await Teacher.authenticate("local")(req, res, function () {
           res.redirect("/dashboard");
           res.send("Registered");
@@ -186,7 +186,6 @@ app.post("/:StudentId/EnterStudentLevel",(req,res) => {
   res.send("Done");
 });
 
-
 app.post(
   "/login-student",
   passport.authenticate("student", {
@@ -234,6 +233,44 @@ app.get("/Teacher-Registration", (req, res) => {
   res.render("Teacher-Registration");
 });
 
+<<<<<<< HEAD
+app.get("/quiz", (req, res) => {
+  res.render("quiz");
+});
+
+app.post("/data/quiz", (req, res) => {
+  var questions = [];
+  var answers = [];
+  var correct = [];
+  if (req.body.question1) {
+    questions.push(req.body.question1);
+    answers.push(req.body.answer11);
+    answers.push(req.body.answer12);
+    answers.push(req.body.answer13);
+    answers.push(req.body.answer14);
+    correct.push(req.body.correct1);
+  }
+  if (req.body.question2) {
+    questions.push(req.body.question2);
+    answers.push(req.body.answer21);
+    answers.push(req.body.answer22);
+    answers.push(req.body.answer23);
+    answers.push(req.body.answer24);
+    correct.push(req.body.correct2);
+  }
+  if (req.body.question3) {
+    questions.push(req.body.question3);
+    answers.push(req.body.answer31);
+    answers.push(req.body.answer32);
+    answers.push(req.body.answer33);
+    answers.push(req.body.answer34);
+    correct.push(req.body.correct3);
+  }
+  console.log(answers);
+  console.log(questions);
+  console.log(correct);
+});
+=======
 
 
 
@@ -276,6 +313,7 @@ app.get("/DeleteBatches",(req,res)=> {
     }
   })
 })
+<<<<<<< HEAD
 
 
 
@@ -330,3 +368,6 @@ app.post("/placement/job/:jobId/:stuId",(req,res)=>{
   }))
 })
 
+=======
+>>>>>>> 3fa197ad2b36e6fde1251638101903640a7dce69
+>>>>>>> 696937564084582b9786cce8d15640c0324062c5
