@@ -233,7 +233,6 @@ app.get("/Teacher-Registration", (req, res) => {
   res.render("Teacher-Registration");
 });
 
-<<<<<<< HEAD
 app.get("/quiz", (req, res) => {
   res.render("quiz");
 });
@@ -270,8 +269,6 @@ app.post("/data/quiz", (req, res) => {
   console.log(questions);
   console.log(correct);
 });
-=======
-
 
 
 //++++++Temporary Ruotes++++++++++(Just to check the working in POSTMAN)
@@ -313,9 +310,6 @@ app.get("/DeleteBatches",(req,res)=> {
     }
   })
 })
-<<<<<<< HEAD
-
-
 
 //++++++++++++Placement realted api's
 
@@ -367,7 +361,3 @@ app.post("/placement/job/:jobId/:stuId",(req,res)=>{
     }
   }))
 })
-
-=======
->>>>>>> 3fa197ad2b36e6fde1251638101903640a7dce69
->>>>>>> 696937564084582b9786cce8d15640c0324062c5
