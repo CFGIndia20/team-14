@@ -365,6 +365,7 @@ app.post("/placement/jobs",(req,res)=>{
   })
 })
 
+//Update the applications array in the Job Database
 app.post("/placement/apply/:jobId/:stuId",(req,res)=>{
   Job.findById({_id : req.params.jobId},function(err,job){
     if(err) res.send(err);
@@ -405,4 +406,39 @@ app.post("/placement/job/:jobId/:stuId",(req,res)=>{
       })
     }
   }))
+})
+
+//Allocation of Job by Admin(We have sorted the Applicants' array on the basis of their marks
+// such that the person who has scored the highest will be listed in the first position in the 
+// Admin Panel under Job Application)
+app.get("/placement/job/:jobId/applicants",(req,res)=>{
+  Job.findById({_id : req.params.jobId},function(err,job){
+    if(err) res.send(err);
+    else{
+      var applicants = job.applicants;
+      //Sort the applicants on the basis of marks(Bubble Sort)
+      for(var i =0;i<applicants.length-1;i++){
+       for(var j =i+1;j<applicants.length;j++){
+        Student.findById({_id : applicant[i]},(err,appi)=>{
+          if(err) res.send(err);
+          else{
+            Student.findById({_id : applicant[j]},(err,appj))
+            if(appi.score < appj.score){
+              var temp = applicant[i];
+              applicant[i] = applicant[j];
+              applicant[j] = temp;
+            }
+          }
+        })  
+        }
+      }
+      //Update the job applicants array in the Job Db
+      Job.findOneAndUpdate({_id : req.params.jobId},{applicants : applicants},function(err,job){
+        if(err) res.send(err);
+        else{
+          res.send(job);
+        }
+      })
+    }
+  })
 })
