@@ -1,14 +1,35 @@
-import mongoose from 'mongoose';
-
+const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
-const ObjectId = Schema.ObjectId;
 
 const JobSchema = new Schema({
-  id: ObjectId,
-  company: String,
-  details: String,
-  jobTitle: String,
-  jobAnnouncementDate: Date,
-});
+    Organisation : {
+        type: String,
+        default : ""
+    },
+    compensation : {
+        type : String,
+        default : ""
+    },
+    skills : {
+        type : [String],
+        default : []
+    },
+    category : {
+        type : String,
+        default : "Non Categorised"
+    },
+    applicants : [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Student",
+        default: null,
+    }],
+    allocatedTo : {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Student",
+        default: null,
+    }
+})
 
-export const Jobs = mongoose.model('Jobs', JobSchema);
+const Job = mongoose.model('Job', JobSchema);
+
+module.exports = module.exports = Job;
