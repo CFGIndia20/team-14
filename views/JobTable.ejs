@@ -30,25 +30,25 @@
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CRoboto:400,500%7CExo+2:600&display=swap" rel="stylesheet">
 
     <!-- Perfect Scrollbar -->
-    <link type="text/css" href="assets\vendor\perfect-scrollbar.css" rel="stylesheet">
+    <link type="text/css" href="\vendor\perfect-scrollbar.css" rel="stylesheet">
 
     <!-- Fix Footer CSS -->
-    <link type="text/css" href="assets\vendor\fix-footer.css" rel="stylesheet">
+    <link type="text/css" href="\vendor\fix-footer.css" rel="stylesheet">
 
     <!-- Material Design Icons -->
-    <link type="text/css" href="assets\css\material-icons.css" rel="stylesheet">
+    <link type="text/css" href="\css\material-icons.css" rel="stylesheet">
 
 
     <!-- Font Awesome Icons -->
-    <link type="text/css" href="assets\css\fontawesome.css" rel="stylesheet">
+    <link type="text/css" href="\css\fontawesome.css" rel="stylesheet">
 
 
     <!-- Preloader -->
-    <link type="text/css" href="assets\css\preloader.css" rel="stylesheet">
+    <link type="text/css" href="\css\preloader.css" rel="stylesheet">
 
 
     <!-- App CSS -->
-    <link type="text/css" href="assets\css\app.css" rel="stylesheet">
+    <link type="text/css" href="\css\app.css" rel="stylesheet">
 
 
 
@@ -83,11 +83,11 @@
 
                     <!-- Navbar Brand -->
                  <a href="fixed-index.html" class="navbar-brand mr-16pt">
-                        <!-- <img class="navbar-brand-icon" src="assets/images/logo/white-100@2x.png" width="30" alt="Luma"> -->
+                        <!-- <img class="navbar-brand-icon" src="/images/logo/white-100@2x.png" width="30" alt="Luma"> -->
 
                         <span class="avatar avatar-sm navbar-brand-icon mr-0 mr-lg-8pt">
 
-                            <span class="avatar-title rounded bg-primary"><img src="assets\images\illustration\student\128\logo.svg" alt="logo" class="img-fluid"></span>
+                            <span class="avatar-title rounded bg-primary"><img src="\images\illustration\student\128\logo.svg" alt="logo" class="img-fluid"></span>
 
                         </span>
 
@@ -98,7 +98,7 @@
                     
                     <ul class="nav navbar-nav ml-auto mr-0">
                         <li class="nav-item">
-                            <a href="fixed-login.html" class="nav-link" data-toggle="tooltip" data-title="Login" data-placement="bottom" data-boundary="window"><i class="material-icons">lock_open</i></a>
+                            <a href="/placement" class="nav-link" data-toggle="tooltip" data-title="Login" data-placement="bottom" data-boundary="window"><i class="material-icons">lock_open</i></a>
                         </li>
                     </ul>
                 </div>
@@ -127,73 +127,52 @@
 
 
     <!-- jQuery -->
-    <script src="assets\vendor\jquery.min.js"></script>
+    <script src="\vendor\jquery.min.js"></script>
 
     <!-- Bootstrap -->
-    <script src="assets\vendor\popper.min.js"></script>
-    <script src="assets\vendor\bootstrap.min.js"></script>
+    <script src="\vendor\popper.min.js"></script>
+    <script src="\vendor\bootstrap.min.js"></script>
 
     <!-- Perfect Scrollbar -->
-    <script src="assets\vendor\perfect-scrollbar.min.js"></script>
+    <script src="\vendor\perfect-scrollbar.min.js"></script>
 
     <!-- DOM Factory -->
-    <script src="assets\vendor\dom-factory.js"></script>
+    <script src="\vendor\dom-factory.js"></script>
 
     <!-- MDK -->
-    <script src="assets\vendor\material-design-kit.js"></script>
+    <script src="\vendor\material-design-kit.js"></script>
 
     <!-- Fix Footer -->
-    <script src="assets\vendor\fix-footer.js"></script>
+    <script src="\vendor\fix-footer.js"></script>
 
     <!-- App JS -->
-    <script src="assets\js\app.js"></script>
+    <script src="\js\app.js"></script>
     <br><br><br><br><br>
     <table>
         <tr>
-          <th>Company</th>
+          <th>Organisation</th>
           <th>Job Title</th>
-          <th>Location</th>
-          <th>Salary</th>
+          <th>Category</th>
+          <th>Compensation</th>
+          <th>Apply</th>
         </tr>
-        <tr>
-          <td>#</td>
-          <td>#</td>
-          <td>#</td>
-          <td>#</td>
-        </tr>
-        <tr>
-            <td>#</td>
-            <td>#</td>
-            <td>#</td>
-            <td>#</td>
-        </tr>
-        <tr>
-            <td>#</td>
-            <td>#</td>
-            <td>#</td>
-            <td>#</td>
-        </tr>
-        <tr>
-            <td>#</td>
-            <td>#</td>
-            <td>#</td>
-            <td>#</td>
-        </tr>
-        <tr>
-            <td>#</td>
-            <td>#</td>
-            <td>#</td>
-            <td>#</td>
-        </tr>
-        <tr>
-            <td>#</td>
-            <td>#</td>
-            <td>#</td>
-            <td>#</td>
-        </tr>
+
+        <% Jobs.forEach((job)=> { %>
+            <tr>
+                <td><%=job.Organisation %></td>
+                <td><%=job.title %></td>
+                <td><%=job.category %></td>
+                <td><%=job.compensation %></td>
+                <td>
+                    <button class = "btn btn-primary"><a href = "/">Apply</a></button>
+                </td>
+            </tr>
+        <%})%>
+
       </table>
 
-
+<div>
+</div>
 
 </body>
 

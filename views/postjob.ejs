@@ -1,0 +1,185 @@
+﻿<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Login</title>
+
+    <!-- Prevent the demo from appearing in search engines -->
+    <meta name="robots" content="noindex">
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CRoboto:400,500%7CExo+2:600&display=swap" rel="stylesheet">
+
+    <!-- Perfect Scrollbar -->
+    <link type="text/css" href="\vendor\perfect-scrollbar.css" rel="stylesheet">
+
+    <!-- Fix Footer CSS -->
+    <link type="text/css" href="\vendor\fix-footer.css" rel="stylesheet">
+
+    <!-- Material Design Icons -->
+    <link type="text/css" href="\css\material-icons.css" rel="stylesheet">
+
+
+    <!-- Font Awesome Icons -->
+    <link type="text/css" href="\css\fontawesome.css" rel="stylesheet">
+
+
+    <!-- Preloader -->
+    <link type="text/css" href="\css\preloader.css" rel="stylesheet">
+
+
+    <!-- App CSS -->
+    <link type="text/css" href="\css\app.css" rel="stylesheet">
+
+</head>
+<body class="layout-app ">
+
+    <div class="preloader">
+        <div class="sk-double-bounce">
+            <div class="sk-child sk-double-bounce1"></div>
+            <div class="sk-child sk-double-bounce2"></div>
+        </div>
+    </div>
+
+    <div class="mdk-drawer-layout js-mdk-drawer-layout" data-push="" data-responsive-width="992px">
+        <div class="mdk-drawer-layout__content page-content">
+
+            <!-- Header -->
+
+
+
+
+
+
+            <div class="navbar navbar-expand navbar-light border-bottom-2" id="default-navbar" data-primary="">
+
+                <!-- Navbar toggler -->
+                <button class="navbar-toggler w-auto mr-16pt d-block d-lg-none rounded-0" type="button" data-toggle="sidebar">
+                    <span class="material-icons">short_text</span>
+                </button>
+
+                <!-- Navbar Brand -->
+                <a href="index.html" class="navbar-brand mr-16pt d-lg-none">
+                    <!-- <img class="navbar-brand-icon" src="/images/logo/white-100@2x.png" width="30" alt="Luma"> -->
+
+                    <span class="avatar avatar-sm navbar-brand-icon mr-0 mr-lg-8pt">
+
+                        <span class="avatar-title rounded bg-primary"><img src="\images\illustration\student\128\white.svg" alt="logo" class="img-fluid"></span>
+
+                    </span>
+
+                    <span class="d-none d-lg-block">Luma</span>
+                </a>
+
+                <ul class="nav navbar-nav d-none d-sm-flex flex justify-content-start ml-8pt">
+                    <li class="nav-item">
+                        <a href="/placement" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="/jobs/unallocated" class="nav-link dropdown-toggle" data-toggle="dropdown" data-caret="false">Open Jobs</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- // END Header -->
+
+            <div class="pt-32pt pt-sm-64pt pb-32pt">
+                <div class="container page__container">
+                    <form action="/placement/jobs" method="POST" class="col-md-5 p-0 mx-auto">
+                        <div class="form-group">
+                            <label class="form-label" for="job-title">Job Title:</label>
+                            <input name="title" id="job-title" type="text" class="form-control" placeholder="Job Title ...">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="job-title">Organisation Name:</label>
+                            <input name="Organisation" id="job-title" type="text" class="form-control" placeholder="Organisation Name ...">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="select-category">Select Category</label>
+                            <select name="category" id="select-category" class="form-control custom-select">
+                                <option selected="">Select</option>
+                                <option value="1">Beauty</option>
+                                <option value="2">Electrical Works</option>
+                                <option value="3">Delivery Logistics</option>
+                                <option value="4">Household Maintenance</option>
+                                <option value="5">Customer Service</option>
+                                <option value="6">Retail Sales</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="salary">Monthly Salary:</label>
+                            <input name="compensation"id="salary" type="text" class="form-control" placeholder="compensation ...">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="locations">Location</label>
+                            <select name="location" id="locations" class="form-control custom-select">
+                                <option selected="">Select</option>
+                                <option value="1">Mumbai</option>
+                                <option value="2">Hydrabad</option>
+                                <option value="3">Delhi</option>
+                                <option value="4">Pune</option>
+                                <option value="5">Chennai</option>
+                                <option value="6">Noida</option>
+                            </select>
+                        </div>
+                        <div class="text-center">
+                            <input type="submit" class="btn btn-primary" value="Post Job">
+                        </div>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="js-fix-footer2 bg-white border-top-2">
+                <div class="container page__container page-section d-flex flex-column">
+                    <p class="text-70 brand mb-24pt">
+                        <img class="brand-icon" src="\images\TheNudge logo.png" width="30" alt="The/Nudge"> The/Nudge
+                    </p>
+                </div>
+            </div>
+
+
+        </div>
+        <!-- // END drawer-layout__content -->
+
+
+
+
+        <!-- drawer -->
+        
+        <!-- // END drawer -->
+
+
+    </div>
+    <!-- // END drawer-layout -->
+
+    <!-- jQuery -->
+    <script src="\vendor\jquery.min.js"></script>
+
+    <!-- Bootstrap -->
+    <script src="\vendor\popper.min.js"></script>
+    <script src="\vendor\bootstrap.min.js"></script>
+
+    <!-- Perfect Scrollbar -->
+    <script src="\vendor\perfect-scrollbar.min.js"></script>
+
+    <!-- DOM Factory -->
+    <script src="\vendor\dom-factory.js"></script>
+
+    <!-- MDK -->
+    <script src="\vendor\material-design-kit.js"></script>
+
+    <!-- Fix Footer -->
+    <script src="\vendor\fix-footer.js"></script>
+
+    <!-- App JS -->
+    <script src="\js\app.js"></script>
+
+
+
+
+</body>
+
+</html>

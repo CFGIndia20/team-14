@@ -15,7 +15,7 @@ const { request } = require("express");
 
 var app = express();
 app.listen(3000, () => {
-  console.log("Server is running");
+  console.log("Server is running at 3000");
 });
 
 mongoose
@@ -313,6 +313,14 @@ app.get("/DeleteBatches",(req,res)=> {
 
 //++++++++++++Placement realted api's
 
+//Landing page for Students 
+app.get("/placement",(req,res)=>{
+  console.log(req.user);
+  // if(req.user.category == "Student")
+  res.render("placementPortal");
+})
+
+
 //All the jobs Posted by the admin
 app.get("/placement/jobs",(req,res)=>{
   Job.find({},(err,jobs)=>{
@@ -323,6 +331,10 @@ app.get("/placement/jobs",(req,res)=>{
   })
 });
 
+app.get("/placement/job-posting",(req,res)=>{
+  res.render("postjob")
+})
+
 //Get all the jobs with respect to categories
 app.get("/placement/jobs/:category",(req,res)=>{
   Job.find({},(err,jobs)=>{
@@ -332,7 +344,8 @@ app.get("/placement/jobs/:category",(req,res)=>{
       jobs.forEach((job) => {
         if(job.category === req.params.category){Jobs.push(job);}
       })
-      res.send(Jobs);
+      console.log(Jobs);
+      res.render("JobTable", {Jobs});
     }
   })
 });
@@ -360,7 +373,7 @@ app.post("/placement/jobs",(req,res)=>{
   Job.create(req.body,function(err,job){
     if(err) res.send(err);
     else{
-      res.send(job);
+      res.redirect("/placement");
     }
   })
 })
@@ -379,6 +392,7 @@ app.post("/placement/apply/:jobId/:stuId",(req,res)=>{
     }
   })
 })
+
 
 //Delete the jobs 
 app.delete("/placement/job/:jobId",(req,res)=>{
