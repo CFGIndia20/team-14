@@ -20,6 +20,6 @@ const BatchSchema = new Schema({
         type:String
     }
 })
-const Batch = mongoose.model('Bacth', BatchSchema);
+const Batch = mongoose.model('Batch', BatchSchema);
 
 module.exports = module.exports = Batch;

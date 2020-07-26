@@ -7,6 +7,7 @@ var express = require("express"),
   RunningSlots = require("./models/RunningSlots"),
   Batch = require("./models/Batch"),
   Admin = require("./models/Admin"),
+  Job = require("./models/Job"),
   passport = require("passport"),
   localStrategy = require("passport-local"),
   passportLocalMongoose = require("passport-local-mongoose");
@@ -153,13 +154,21 @@ app.post("/:StudentId/EnterStudentLevel",(req,res) => {
       UnallocatedSlots.find({},function(err,batches){
         if(err) console.log(err);
         else{
-          console.log(Object.keys(Object.keys(batches).length === 0));
+          console.log(batches)
+          console.log(Object.keys(batches).length === 0);
 
           if(Object.keys(batches).length === 0){
             //If we don't have any batch, we make 3 batches => 1 for each skill level
             Batch.create({Students : [],level : "Low"},function(err,batch){
               if(err) console,log(err);
-              else console.log(batch);
+              else {console.log(batch);
+              UnallocatedSlots.find({},function(err,UnBatches){
+                if(err) console.log(err);
+                else{
+                  var b = UnBatches.batches.push(batch);                  
+                  UnallocatedSlots.findByIdAndUpdate({_id : UnBatches._id},{batches : b});
+                }
+              })}
             })
             Batch.create({Students : [],level : "Mid"},function(err,batch){
               if(err) console,log(err);
@@ -267,3 +276,57 @@ app.get("/DeleteBatches",(req,res)=> {
     }
   })
 })
+
+
+
+//++++++++++++Placement realted api's
+
+//All the jobs Posted by the admin
+app.get("/placement/jobs",(req,res)=>{
+  Job.find({},(err,jobs)=>{
+    if(err) res.send(err);
+    else{
+      res.send(jobs);
+    }
+  })
+});
+
+//Post Jobs on the Placement Portal(Admin View)
+app.post("/placement/jobs",(req,res)=>{
+  console.log(req.body);
+  Job.create(req.body,function(err,job){
+    if(err) res.send(err);
+    else{
+      res.send(job);
+    }
+  })
+})
+
+//Delete the jobs 
+app.delete("/placement/job/:jobId",(req,res)=>{
+  Job.findByIdAndRemove({_id : req.params.jobId},function(err,job){
+    if(err) console.log(err);
+    else res.send(job);
+  })
+})
+
+//Allocate the job 
+app.post("/placement/job/:jobId/:stuId",(req,res)=>{
+  Job.findById({_id:req.params.jobId},(function(err,job){
+    if(err) res.send(err);
+    else{
+      Student.findById({_id : req.params.stuId},function(err,student){
+        if(err) res.send(err);
+        else{
+          Student.findByIdAndUpdate({_id : req.params.stuId},{placement : req.params.jobId},(function(err,UpdateStu){
+            if(err) res.send(err);
+            else{
+              res.send(UpdateStu);
+            }
+          }))
+        }
+      })
+    }
+  }))
+})
+

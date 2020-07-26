@@ -68,6 +68,11 @@ const Student = new Schema({
     type: String,
     default: "",
   },
+  placement: {
+    type : mongoose.Schema.Types.ObjectId,
+    ref : "Job",
+    default: null,
+  },
 });
 
 Student.plugin(passportLocalMongoose);
