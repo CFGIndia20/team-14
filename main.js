@@ -67,6 +67,9 @@ isLoggedIn = (req, res, next) => {
     return res.redirect("/login");
   }
 };
+app.get("/",(req,res)=>{
+  res.render("index")
+})
 
 app.post("/register", (req, res) => {
   console.log(req.body);
@@ -272,6 +275,7 @@ app.post("/data/quiz", (req, res) => {
 
 
 //++++++Temporary Ruotes++++++++++(Just to check the working in POSTMAN)
+
 app.get("/students",(req,res)=> {
   console.log(req.body);
   Student.find({},function(err,students){
@@ -349,6 +353,22 @@ app.get("/placement/jobs/:category",(req,res)=>{
     }
   })
 });
+
+
+app.get("/placement/jobs/:category",(req,res)=>{
+  Job.find({},(err,jobs)=>{
+    if(err) res.send(err);
+    else{
+      var Jobs = [];
+      jobs.forEach((job) => {
+        if(job.category === req.params.category){Jobs.push(job);}
+      })
+      console.log(Jobs);
+      res.render("JobTable", {Jobs});
+    }
+  })
+});
+
 
 //Get all the jobs which are not allocated yet
 app.get("/placement/jobs/unallocated",(req,res)=>{
