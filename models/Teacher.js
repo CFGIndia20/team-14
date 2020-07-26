@@ -18,6 +18,7 @@ const Teacher = new mongoose.Schema({
   category: {
     type: String,
   },
+  batches: [mongoose.Schema.Types.ObjectId],
   freeSlots: [Number],
   notSlots: [Number],
 });

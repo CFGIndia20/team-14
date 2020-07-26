@@ -21,6 +21,15 @@ const BatchSchema = new Schema({
   level: {
     type: String,
   },
+  questions: {
+    type: [String],
+  },
+  answers: {
+    type: [String],
+  },
+  correct: {
+    type: [String],
+  },
 });
 const Batch = mongoose.model("Batch", BatchSchema);
 

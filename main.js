@@ -3,15 +3,13 @@ var express = require("express"),
   mongoose = require("mongoose"),
   Teacher = require("./models/Teacher"),
   Student = require("./models/Student"),
-  UnallocatedSlots = require("./models/UnallocatedSlots"),
-  RunningSlots = require("./models/RunningSlots"),
-  Batch = require("./models/Batch"),
   Admin = require("./models/Admin"),
   Job = require("./models/Job"),
   passport = require("passport"),
   localStrategy = require("passport-local"),
   passportLocalMongoose = require("passport-local-mongoose");
 const { request } = require("express");
+const Batch = require("./models/Batch");
 
 var app = express();
 app.listen(3000, () => {
@@ -31,7 +29,7 @@ mongoose
   })
   .catch((err) => {
     console.log("Error: ", err.message);
-});
+  });
 
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
@@ -96,8 +94,8 @@ app.post("/register", (req, res) => {
       name: req.body.name,
       category: req.body.category,
       username: req.body.username,
-      dob: req.body.dob,
-      grad_date: req.body.grad_date,
+      // dob: req.body.dob,
+      // grad_date: req.body.grad_date,
       experience: req.body.experience,
       hsc: req.body.hsc,
       ssc: req.body.ssc,
@@ -192,7 +190,7 @@ app.post("/:StudentId/EnterStudentLevel",(req,res) => {
 app.post(
   "/login-student",
   passport.authenticate("student", {
-    successRedirect: "/dashboard",
+    successRedirect: "/quiz-student",
     failureRedirect: "/login",
   }),
   (req, res) => {}
@@ -201,7 +199,7 @@ app.post(
 app.post(
   "/login-teacher",
   passport.authenticate("teacher", {
-    successRedirect: "/dashboard",
+    successRedirect: "/quiz-teacher",
     failureRedirect: "/login",
   }),
   (req, res) => {}
@@ -236,8 +234,16 @@ app.get("/Teacher-Registration", (req, res) => {
   res.render("Teacher-Registration");
 });
 
+<<<<<<< HEAD
+app.get("/quiz-teacher", (req, res) => {
+=======
 app.get("/quiz", (req, res) => {
+>>>>>>> 6f250a3cf4d8083e6ba9947d53ddc45082c397a8
   res.render("quiz");
+});
+
+app.get("/quiz-student", (req, res) => {
+  res.render("quiz_student");
 });
 
 app.post("/data/quiz", (req, res) => {
@@ -271,9 +277,41 @@ app.post("/data/quiz", (req, res) => {
   console.log(answers);
   console.log(questions);
   console.log(correct);
+  var i = 0;
+  var batches = [];
+  console.log(req.isAuthenticated());
+  const teacher = Teacher.findById(req.user._id);
+  batches = teacher.batches;
+  while (i < batches.length) {
+    const batch = Batch.find({ _id: batches[i] });
+    const today = new Date();
+    if (batch.Time - today.getHours() == 0) {
+      Batch.findByIdAndUpdate(
+        batch._id,
+        { questions: questions, answers: answers, correct: correct },
+        (err, docs) => {
+          if (err) {
+            console.log(err);
+          } else {
+            console.log("Updated Batch : ", docs);
+          }
+        }
+      );
+    }
+  }
 });
 
+app.get("/student/quiz", (req, res) => {
+  const student = Student.findById(req.user._id);
+  const batch = Batch.findById(student.batch);
+  if (batch.questions != null) {
+    res
+      .status(200)
+      .json({ questions: questions, answers: answers, correct: correct });
+  }
+});
 
+<<<<<<< HEAD
 //++++++Temporary Ruotes++++++++++(Just to check the working in POSTMAN)
 
 app.get("/students",(req,res)=> {
@@ -288,30 +326,65 @@ app.get("/students",(req,res)=> {
     }
   })
 })
+=======
+app.post("/calculate", (req, res) => {
+  var answer = req.body.answer;
+  var correct = req.body.correct;
+  var student = Student.findById(req.user._id);
+  var score = student.score + 1;
+  var attendance = student.attendance + 1;
+  if (answer == correct) {
+    Student.findByIdAndUpdate(
+      req.user._id,
+      { score: score, attendance: attendance },
+      (err, docs) => {
+        if (err) {
+          console.log(err);
+        } else {
+          console.log("Updated Student : ", docs);
+        }
+      }
+    );
+  }
+});
+>>>>>>> 576cbf223b31e6ce5a749bbced880fee41767466
 
-app.get("/batches",(req,res)=> {
-  console.log(req.body);
-  Batch.find({},function(err,batches){
-    if(err) {
-      console.log(err);
-      res.err(err);
+app.post("/batchTest", (req, res) => {
+  var newBatch = new Batch({
+    teacher: req.body.id,
+    level: req.body.level,
+  });
+  newBatch.save(function (err) {
+    if (!err) {
+      res.send({
+        status: true,
+      });
+    } else {
+      res.send({
+        status: false,
+      });
     }
-    else{
-      res.send(batches);
-    }
-  })
-})
+  });
+});
 
-app.get("/DeleteBatches",(req,res)=> {
-  console.log(req.body);
-  Batch.findOneAndDelete({},function(err,batches){
-    if(err) {
-      console.log(err);
-      res.send(err);
+app.post("/studentTest", (req, res) => {
+  const student = Student.findByIdAndUpdate(
+    req.body.id,
+    { batch: req.body.batch },
+    (err, docs) => {
+      if (err) {
+        console.log(err);
+      } else {
+        console.log("Updated Student : ", docs);
+        res.send({
+          status: true,
+        });
+      }
     }
-    else{
-      res.send(batches);
-    }
+<<<<<<< HEAD
+  );
+});
+=======
   })
 })
 
@@ -476,3 +549,4 @@ app.get("/placement/job/:jobId/applicants",(req,res)=>{
     }
   })
 })
+>>>>>>> 6f250a3cf4d8083e6ba9947d53ddc45082c397a8
